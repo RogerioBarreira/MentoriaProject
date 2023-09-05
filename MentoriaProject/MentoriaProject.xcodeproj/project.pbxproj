@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99AC2AA67557007983E0 /* AppDelegate.swift */; };
 		B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99AE2AA67557007983E0 /* SceneDelegate.swift */; };
-		B60A99B12AA67557007983E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99B02AA67557007983E0 /* ViewController.swift */; };
-		B60A99B42AA67557007983E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60A99B22AA67557007983E0 /* Main.storyboard */; };
+		B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99B02AA67557007983E0 /* LoginViewController.swift */; };
 		B60A99B62AA67558007983E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60A99B52AA67558007983E0 /* Assets.xcassets */; };
 		B60A99B92AA67558007983E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60A99B72AA67558007983E0 /* LaunchScreen.storyboard */; };
+		B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99C32AA676D8007983E0 /* LoginView.swift */; };
+		B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99C52AA67718007983E0 /* LoginViewModel.swift */; };
+		B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99C82AA67BE0007983E0 /* UIView+.swift */; };
+		B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CA2AA68601007983E0 /* UITextField+.swift */; };
+		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
+		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
+		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B60A99A92AA67557007983E0 /* MentoriaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentoriaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60A99AC2AA67557007983E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B60A99AE2AA67557007983E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B60A99B02AA67557007983E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B60A99B32AA67557007983E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B60A99B02AA67557007983E0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B60A99B52AA67558007983E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B60A99B82AA67558007983E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B60A99BA2AA67558007983E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B60A99C32AA676D8007983E0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B60A99C52AA67718007983E0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B60A99C82AA67BE0007983E0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		B60A99CA2AA68601007983E0 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				B60A99AB2AA67557007983E0 /* MentoriaProject */,
+				B60A99C02AA67689007983E0 /* Source */,
 				B60A99AA2AA67557007983E0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,13 +71,58 @@
 			children = (
 				B60A99AC2AA67557007983E0 /* AppDelegate.swift */,
 				B60A99AE2AA67557007983E0 /* SceneDelegate.swift */,
-				B60A99B02AA67557007983E0 /* ViewController.swift */,
-				B60A99B22AA67557007983E0 /* Main.storyboard */,
 				B60A99B52AA67558007983E0 /* Assets.xcassets */,
 				B60A99B72AA67558007983E0 /* LaunchScreen.storyboard */,
 				B60A99BA2AA67558007983E0 /* Info.plist */,
 			);
 			path = MentoriaProject;
+			sourceTree = "<group>";
+		};
+		B60A99C02AA67689007983E0 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99C72AA67B83007983E0 /* Extensions */,
+				B60A99C12AA676B2007983E0 /* Controller */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B60A99C12AA676B2007983E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99C22AA676BA007983E0 /* Login */,
+				B60A99CC2AA69406007983E0 /* Register */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B60A99C22AA676BA007983E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99C32AA676D8007983E0 /* LoginView.swift */,
+				B60A99B02AA67557007983E0 /* LoginViewController.swift */,
+				B60A99C52AA67718007983E0 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B60A99C72AA67B83007983E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99C82AA67BE0007983E0 /* UIView+.swift */,
+				B60A99CA2AA68601007983E0 /* UITextField+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B60A99CC2AA69406007983E0 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99CD2AA6942A007983E0 /* RegisterView.swift */,
+				B60A99CF2AA69435007983E0 /* RegisterViewController.swift */,
+				B60A99D12AA69441007983E0 /* RegisterViewModel.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +185,6 @@
 			files = (
 				B60A99B92AA67558007983E0 /* LaunchScreen.storyboard in Resources */,
 				B60A99B62AA67558007983E0 /* Assets.xcassets in Resources */,
-				B60A99B42AA67557007983E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +195,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B60A99B12AA67557007983E0 /* ViewController.swift in Sources */,
+				B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */,
+				B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */,
+				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
+				B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */,
+				B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */,
 				B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */,
+				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
+				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
+				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
 				B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +211,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B60A99B22AA67557007983E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B60A99B32AA67557007983E0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B60A99B72AA67558007983E0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +347,7 @@
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -319,7 +375,7 @@
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
