@@ -10,6 +10,8 @@ import UIKit
 
 class LoginView: UIView {
     
+    var onSecurityKey: (()-> Void)?
+    
     let labelEmail: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +71,7 @@ class LoginView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "iconEye"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
     }()
 
@@ -120,7 +123,7 @@ class LoginView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray4
+        self.backgroundColor = .darkGray
         addElementsVisual()
         configConstraints()
     }
@@ -196,5 +199,21 @@ class LoginView: UIView {
             buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             buttonRegister.heightAnchor.constraint(equalToConstant: 48),
         ])
+    }
+    
+    func setupTextField(delegate: UITextFieldDelegate) {
+        self.textEmail.delegate = delegate
+        self.textPassword.delegate = delegate
+    }
+    
+    @objc func setupPasswordTap() {
+        textPassword.isSecureTextEntry.toggle()
+        
+        if textPassword.isSecureTextEntry {
+            imageIconPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            imageIconPassword.setImage(UIImage(named: "iconEye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+        }
+        self.onSecurityKey?()
     }
 }
