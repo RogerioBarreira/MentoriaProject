@@ -1,0 +1,20 @@
+{
+  "name": "SDKNET",
+  "version": "0.0.01",
+  "summary": "Thats the Network module.",
+  "homepage": "https://github.com/RogerioBarreira",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "Rogerio Martins",
+  "source": {
+    "git": "https://github.com/RogerioBarreira.git",
+    "tag": "0.0.01"
+  },
+  "swift_versions": "5.0",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "Network/*/*",
+  "swift_version": "5.0"
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101A4170D9601E5FE55AC257 /* Pods_MentoriaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D377D2DE414129FAB459DAD /* Pods_MentoriaProject.framework */; };
 		B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99AC2AA67557007983E0 /* AppDelegate.swift */; };
 		B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99AE2AA67557007983E0 /* SceneDelegate.swift */; };
 		B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99B02AA67557007983E0 /* LoginViewController.swift */; };
@@ -19,9 +20,19 @@
 		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
 		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
 		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
+		B683928F2AAD3AA4000F8F5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */; };
+		B68392942AAD3F80000F8F5C /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392932AAD3F80000F8F5C /* Worker.swift */; };
+		B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683929D2AAD47D7000F8F5C /* UserModel.swift */; };
+		B68392A02AAD48E6000F8F5C /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683929F2AAD48E6000F8F5C /* UserProvider.swift */; };
+		B68392A32AAD515B000F8F5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A22AAD515B000F8F5C /* Constants.swift */; };
+		B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A42AAD52EE000F8F5C /* UserManager.swift */; };
+		B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A62AAD546F000F8F5C /* UserBusiness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D377D2DE414129FAB459DAD /* Pods_MentoriaProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentoriaProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		808BBF6EDCC6B68AF85C8090 /* Pods-MentoriaProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentoriaProject.debug.xcconfig"; path = "Target Support Files/Pods-MentoriaProject/Pods-MentoriaProject.debug.xcconfig"; sourceTree = "<group>"; };
+		843E04C5E759987E3845026E /* Pods-MentoriaProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentoriaProject.release.xcconfig"; path = "Target Support Files/Pods-MentoriaProject/Pods-MentoriaProject.release.xcconfig"; sourceTree = "<group>"; };
 		B60A99A92AA67557007983E0 /* MentoriaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentoriaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60A99AC2AA67557007983E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B60A99AE2AA67557007983E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +47,13 @@
 		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B68392932AAD3F80000F8F5C /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Worker.swift; path = "../../../../Exemplo-DSM/Source/Worker.swift"; sourceTree = "<group>"; };
+		B683929D2AAD47D7000F8F5C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../../../../SDKNet/Source/Network/Provider/UserModel.swift; sourceTree = "<group>"; };
+		B683929F2AAD48E6000F8F5C /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		B68392A22AAD515B000F8F5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B68392A42AAD52EE000F8F5C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		B68392A62AAD546F000F8F5C /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,18 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101A4170D9601E5FE55AC257 /* Pods_MentoriaProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6547D29E6C6562867FCE9A63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				808BBF6EDCC6B68AF85C8090 /* Pods-MentoriaProject.debug.xcconfig */,
+				843E04C5E759987E3845026E /* Pods-MentoriaProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B60A99A02AA67557007983E0 = {
 			isa = PBXGroup;
 			children = (
 				B60A99AB2AA67557007983E0 /* MentoriaProject */,
 				B60A99C02AA67689007983E0 /* Source */,
 				B60A99AA2AA67557007983E0 /* Products */,
+				6547D29E6C6562867FCE9A63 /* Pods */,
+				C3185EA626BE632095156187 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +103,7 @@
 				B60A99AE2AA67557007983E0 /* SceneDelegate.swift */,
 				B60A99B52AA67558007983E0 /* Assets.xcassets */,
 				B60A99B72AA67558007983E0 /* LaunchScreen.storyboard */,
+				B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */,
 				B60A99BA2AA67558007983E0 /* Info.plist */,
 			);
 			path = MentoriaProject;
@@ -81,8 +112,10 @@
 		B60A99C02AA67689007983E0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B60A99C72AA67B83007983E0 /* Extensions */,
+				B68392A12AAD5149000F8F5C /* Helpers */,
 				B60A99C12AA676B2007983E0 /* Controller */,
+				B60A99C72AA67B83007983E0 /* Extensions */,
+				B68392922AAD3F68000F8F5C /* Worker */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -99,9 +132,9 @@
 		B60A99C22AA676BA007983E0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B60A99C32AA676D8007983E0 /* LoginView.swift */,
-				B60A99B02AA67557007983E0 /* LoginViewController.swift */,
-				B60A99C52AA67718007983E0 /* LoginViewModel.swift */,
+				B68392982AAD41EC000F8F5C /* ApiLogin */,
+				B68392912AAD3DF2000F8F5C /* Model */,
+				B68392902AAD3DD5000F8F5C /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -125,6 +158,90 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		B68392902AAD3DD5000F8F5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B60A99C32AA676D8007983E0 /* LoginView.swift */,
+				B60A99B02AA67557007983E0 /* LoginViewController.swift */,
+				B60A99C52AA67718007983E0 /* LoginViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B68392912AAD3DF2000F8F5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68392922AAD3F68000F8F5C /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				B68392932AAD3F80000F8F5C /* Worker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		B68392982AAD41EC000F8F5C /* ApiLogin */ = {
+			isa = PBXGroup;
+			children = (
+				B683929C2AAD47C3000F8F5C /* Model */,
+				B683929B2AAD4201000F8F5C /* Provider */,
+				B68392992AAD41F6000F8F5C /* Bussines */,
+				B683929A2AAD41FE000F8F5C /* Maneger */,
+			);
+			path = ApiLogin;
+			sourceTree = "<group>";
+		};
+		B68392992AAD41F6000F8F5C /* Bussines */ = {
+			isa = PBXGroup;
+			children = (
+				B68392A62AAD546F000F8F5C /* UserBusiness.swift */,
+			);
+			path = Bussines;
+			sourceTree = "<group>";
+		};
+		B683929A2AAD41FE000F8F5C /* Maneger */ = {
+			isa = PBXGroup;
+			children = (
+				B68392A42AAD52EE000F8F5C /* UserManager.swift */,
+			);
+			path = Maneger;
+			sourceTree = "<group>";
+		};
+		B683929B2AAD4201000F8F5C /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				B683929F2AAD48E6000F8F5C /* UserProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		B683929C2AAD47C3000F8F5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B683929D2AAD47D7000F8F5C /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68392A12AAD5149000F8F5C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B68392A22AAD515B000F8F5C /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C3185EA626BE632095156187 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D377D2DE414129FAB459DAD /* Pods_MentoriaProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B60A99BD2AA67558007983E0 /* Build configuration list for PBXNativeTarget "MentoriaProject" */;
 			buildPhases = (
+				8130BFF41736FE7A5BF08399 /* [CP] Check Pods Manifest.lock */,
 				B60A99A52AA67557007983E0 /* Sources */,
 				B60A99A62AA67557007983E0 /* Frameworks */,
 				B60A99A72AA67557007983E0 /* Resources */,
+				09B68F0CF3098D18DD76E5DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,11 +303,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60A99B92AA67558007983E0 /* LaunchScreen.storyboard in Resources */,
+				B683928F2AAD3AA4000F8F5C /* GoogleService-Info.plist in Resources */,
 				B60A99B62AA67558007983E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09B68F0CF3098D18DD76E5DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentoriaProject/Pods-MentoriaProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentoriaProject/Pods-MentoriaProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MentoriaProject/Pods-MentoriaProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8130BFF41736FE7A5BF08399 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MentoriaProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B60A99A52AA67557007983E0 /* Sources */ = {
@@ -198,12 +360,18 @@
 				B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */,
 				B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */,
 				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
+				B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */,
 				B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */,
 				B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */,
 				B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */,
+				B68392A02AAD48E6000F8F5C /* UserProvider.swift in Sources */,
+				B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */,
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
 				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
+				B68392942AAD3F80000F8F5C /* Worker.swift in Sources */,
+				B68392A32AAD515B000F8F5C /* Constants.swift in Sources */,
+				B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */,
 				B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +494,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -338,6 +506,7 @@
 		};
 		B60A99BE2AA67558007983E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 808BBF6EDCC6B68AF85C8090 /* Pods-MentoriaProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,7 +519,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +535,7 @@
 		};
 		B60A99BF2AA67558007983E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 843E04C5E759987E3845026E /* Pods-MentoriaProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -378,7 +548,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
