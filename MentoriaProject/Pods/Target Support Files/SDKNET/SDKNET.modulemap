@@ -1,0 +1,6 @@
+framework module SDKNET {
+  umbrella header "SDKNET-umbrella.h"
+
+  export *
+  module * { export * }
+}
