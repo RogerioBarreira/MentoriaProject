@@ -1,0 +1,19 @@
+{
+  "name": "DSM",
+  "version": "0.0.01",
+  "summary": "Thats the Network module.",
+  "homepage": "https://github.com/RogerioBarreira",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": "Rogerio Martins",
+  "source": {
+    "path": "../Exemplo-DSM/Source"
+  },
+  "swift_versions": "14.3",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "DSM/**/**/**/**/*",
+  "swift_version": "14.3"
+}

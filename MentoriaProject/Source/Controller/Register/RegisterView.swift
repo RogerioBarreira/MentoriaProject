@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterView: UIView {
     
+    var onSecurityKey: (() -> Void)?
+    var onRegisterTap: (() -> Void)?
+    
     let labelEmail: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +33,10 @@ class RegisterView: UIView {
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 7
         text.clipsToBounds = true
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+               .foregroundColor: UIColor.black]
+        let attributedPlaceholder = NSAttributedString(string: "Digite seu email", attributes: placeholderAttributes)
+           text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
     
@@ -58,17 +65,23 @@ class RegisterView: UIView {
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
+        text.isSecureTextEntry = false
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 7
         text.clipsToBounds = true
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+               .foregroundColor: UIColor.black]
+        let attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: placeholderAttributes)
+           text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
     
     let imageIconPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "iconEye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
     }()
     
@@ -89,17 +102,23 @@ class RegisterView: UIView {
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
+        text.isSecureTextEntry = false
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 7
         text.clipsToBounds = true
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+               .foregroundColor: UIColor.black]
+        let attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: placeholderAttributes)
+           text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
     
     let imageIconConfirmPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "iconEye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(setupRegisterTap), for: .touchUpInside)
         return button
     }()
     
@@ -120,7 +139,7 @@ class RegisterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray4
+        self.backgroundColor = .darkGray
         addElementsVisual()
         configConstraints()
     }
@@ -174,11 +193,11 @@ class RegisterView: UIView {
             imageIconPassword.centerYAnchor.constraint(equalTo: textPassword.centerYAnchor),
             imageIconPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
             imageIconPassword.heightAnchor.constraint(equalToConstant: 20),
-            imageIconPassword.widthAnchor.constraint(equalToConstant: 20),
+            imageIconPassword.widthAnchor.constraint(equalToConstant: 25),
             
             labelConfirmePassword.topAnchor.constraint(equalTo: textPassword.bottomAnchor, constant: 30),
             labelConfirmePassword.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            labelConfirmePassword.widthAnchor.constraint(equalToConstant: 70),
+            labelConfirmePassword.widthAnchor.constraint(equalToConstant: 150),
             labelConfirmePassword.heightAnchor.constraint(equalToConstant: 21),
             
             textConfirmePassword.topAnchor.constraint(equalTo: labelConfirmePassword.bottomAnchor, constant: 7),
@@ -189,12 +208,40 @@ class RegisterView: UIView {
             imageIconConfirmPassword.centerYAnchor.constraint(equalTo: textConfirmePassword.centerYAnchor),
             imageIconConfirmPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
             imageIconConfirmPassword.heightAnchor.constraint(equalToConstant: 20),
-            imageIconConfirmPassword.widthAnchor.constraint(equalToConstant: 20),
+            imageIconConfirmPassword.widthAnchor.constraint(equalToConstant: 25),
             
             buttonRegister.topAnchor.constraint(equalTo: textConfirmePassword.bottomAnchor, constant: 50),
             buttonRegister.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             buttonRegister.heightAnchor.constraint(equalToConstant: 48),
         ])
+    }
+    
+    func setupTextField(delegate: UITextFieldDelegate) {
+        self.textEmail.delegate = delegate
+        self.textPassword.delegate = delegate
+        self.textConfirmePassword.delegate = delegate
+    }
+    
+    @objc func setupPasswordTap() {
+        textPassword.isSecureTextEntry.toggle()
+        
+        if textPassword.isSecureTextEntry {
+            imageIconPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            imageIconPassword.setImage(UIImage(systemName: "eye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+        }
+        self.onSecurityKey?()
+    }
+    
+    @objc func setupRegisterTap() {
+        textConfirmePassword.isSecureTextEntry.toggle()
+        
+        if textConfirmePassword.isSecureTextEntry {
+            imageIconConfirmPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        } else {
+            imageIconConfirmPassword.setImage(UIImage(systemName: "eye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+        }
+        self.onRegisterTap?()
     }
 }
