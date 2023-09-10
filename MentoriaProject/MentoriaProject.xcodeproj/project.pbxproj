@@ -20,6 +20,8 @@
 		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
 		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
 		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
+		B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD02AAD80EC004ED703 /* Coordinator.swift */; };
+		B6810AD42AAD83D9004ED703 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD32AAD83D9004ED703 /* HomeViewController.swift */; };
 		B683928F2AAD3AA4000F8F5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */; };
 		B68392942AAD3F80000F8F5C /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392932AAD3F80000F8F5C /* Worker.swift */; };
 		B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683929D2AAD47D7000F8F5C /* UserModel.swift */; };
@@ -47,6 +49,8 @@
 		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B6810AD02AAD80EC004ED703 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B6810AD32AAD83D9004ED703 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B68392932AAD3F80000F8F5C /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Worker.swift; path = "../../../../Exemplo-DSM/Source/Worker.swift"; sourceTree = "<group>"; };
 		B683929D2AAD47D7000F8F5C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../../../../SDKNet/Source/Network/Provider/UserModel.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		B60A99C02AA67689007983E0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B6810ACF2AAD80D6004ED703 /* Coordinator */,
 				B68392A12AAD5149000F8F5C /* Helpers */,
 				B60A99C12AA676B2007983E0 /* Controller */,
 				B60A99C72AA67B83007983E0 /* Extensions */,
@@ -123,6 +128,7 @@
 		B60A99C12AA676B2007983E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6810AD22AAD83BB004ED703 /* Home */,
 				B60A99C22AA676BA007983E0 /* Login */,
 				B60A99CC2AA69406007983E0 /* Register */,
 			);
@@ -156,6 +162,22 @@
 				B60A99D12AA69441007983E0 /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		B6810ACF2AAD80D6004ED703 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B6810AD02AAD80EC004ED703 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B6810AD22AAD83BB004ED703 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B6810AD32AAD83D9004ED703 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B68392902AAD3DD5000F8F5C /* View */ = {
@@ -362,11 +384,13 @@
 				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
 				B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */,
 				B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */,
+				B6810AD42AAD83D9004ED703 /* HomeViewController.swift in Sources */,
 				B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */,
 				B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */,
 				B68392A02AAD48E6000F8F5C /* UserProvider.swift in Sources */,
 				B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */,
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
+				B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
 				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
 				B68392942AAD3F80000F8F5C /* Worker.swift in Sources */,

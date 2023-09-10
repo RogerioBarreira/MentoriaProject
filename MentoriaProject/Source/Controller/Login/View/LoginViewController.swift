@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var onSuccessTap: (()-> Void)?
+    
     lazy var viewLogin: LoginView = {
         let view = LoginView()
         view.onLogin = { email, password in
@@ -33,7 +35,7 @@ class LoginViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(_):
-                print("success")
+                self.onSuccessTap?()
             case .failure(let error):
                 self.showMessageError(title: "Error", message: error.localizedDescription)
             }
