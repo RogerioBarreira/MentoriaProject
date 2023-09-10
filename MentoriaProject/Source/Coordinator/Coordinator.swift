@@ -21,9 +21,11 @@ class Coordinator {
     
     func start() {
         let vc = LoginViewController()
-        vc.onSuccessTap = {
-            self.startHome()
-        }
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func startRegister() {
+        let vc = RegisterViewController()
         self.navigationController.pushViewController(vc, animated: true)
     }
     

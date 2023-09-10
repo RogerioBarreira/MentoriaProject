@@ -11,7 +11,8 @@ import UIKit
 class RegisterView: UIView {
     
     var onSecurityKey: (() -> Void)?
-    var onRegisterTap: (() -> Void)?
+    var onRegisterTap: ((_ email: String, _ password: String)-> Void)?
+    var onError: (() -> Void)?
     
     let labelEmail: UILabel = {
         let label = UILabel()
@@ -65,7 +66,7 @@ class RegisterView: UIView {
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
-        text.isSecureTextEntry = false
+        text.isSecureTextEntry = true
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 7
         text.clipsToBounds = true
@@ -79,9 +80,9 @@ class RegisterView: UIView {
     let imageIconPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(setupIconPassword), for: .touchUpInside)
         return button
     }()
     
@@ -102,7 +103,7 @@ class RegisterView: UIView {
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
-        text.isSecureTextEntry = false
+        text.isSecureTextEntry = true
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 7
         text.clipsToBounds = true
@@ -116,9 +117,9 @@ class RegisterView: UIView {
     let imageIconConfirmPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(setupRegisterTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(setupIconConfirmPassword), for: .touchUpInside)
         return button
     }()
     
@@ -134,6 +135,7 @@ class RegisterView: UIView {
         button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(setupRegisterTap), for: .touchUpInside)
         return button
     }()
     
@@ -223,7 +225,7 @@ class RegisterView: UIView {
         self.textConfirmePassword.delegate = delegate
     }
     
-    @objc func setupPasswordTap() {
+    @objc func setupIconPassword() {
         textPassword.isSecureTextEntry.toggle()
         
         if textPassword.isSecureTextEntry {
@@ -234,7 +236,7 @@ class RegisterView: UIView {
         self.onSecurityKey?()
     }
     
-    @objc func setupRegisterTap() {
+    @objc func setupIconConfirmPassword() {
         textConfirmePassword.isSecureTextEntry.toggle()
         
         if textConfirmePassword.isSecureTextEntry {
@@ -242,6 +244,21 @@ class RegisterView: UIView {
         } else {
             imageIconConfirmPassword.setImage(UIImage(systemName: "eye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         }
-        self.onRegisterTap?()
+        self.onSecurityKey?()
+    }
+    
+    @objc
+    private func setupRegisterTap() {
+        if let email = textEmail.text,
+           let password = textPassword.text,
+           let confirmPasswor = textConfirmePassword.text {
+            if password != confirmPasswor {
+                self.onError?()
+            } else {
+                self.onRegisterTap?(email, password)
+            }
+        } else {
+            print("Error")
+        }
     }
 }

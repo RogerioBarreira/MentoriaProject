@@ -11,8 +11,8 @@ import UIKit
 class LoginView: UIView {
     
     var onLogin: ((_ email: String, _ password: String)-> Void)?
+    var onRegister: (() -> Void)?
     var onSecurityKey: (()-> Void)?
-    
     
     let labelEmail: UILabel = {
         let label = UILabel()
@@ -58,6 +58,7 @@ class LoginView: UIView {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Digite sua senha"
+        text.isSecureTextEntry = true
         text.textColor = .black
         text.setLeftPaddingPoints(15)
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -71,7 +72,7 @@ class LoginView: UIView {
     let imageIconPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "iconEye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
@@ -122,6 +123,7 @@ class LoginView: UIView {
         button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(onRegisterTap), for: .touchUpInside)
         return button
     }()
     override init(frame: CGRect) {
@@ -226,5 +228,10 @@ class LoginView: UIView {
            let password = textPassword.text {
             self.onLogin?(email, password)
         }
+    }
+    
+    @objc
+    private func onRegisterTap() {
+        onRegister?()
     }
 }
