@@ -7,17 +7,18 @@
 
 import Foundation
 import UIKit
+import DSM
 
 class LoginView: UIView {
     
     var onLogin: ((_ email: String, _ password: String)-> Void)?
+    var onRegister: (() -> Void)?
     var onSecurityKey: (()-> Void)?
-    
     
     let labelEmail: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "E-mail"
+        label.text = DSM.Constants.Keys.labelEmail.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -26,7 +27,7 @@ class LoginView: UIView {
     let textEmail: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "Digite seu email"
+        text.placeholder = DSM.Constants.Keys.textEmailPlaceholder.value
         text.textColor = .black
         text.setLeftPaddingPoints(15)
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -41,14 +42,14 @@ class LoginView: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.image = UIImage(named: "iconEmail")
+        image.image = UIImage(named: DSM.Constants.Keys.imageIconEmail.value)
         return image
     }()
     
     let labelPassword: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Senha"
+        label.text = DSM.Constants.Keys.labelPassword.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -57,7 +58,8 @@ class LoginView: UIView {
     let textPassword: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "Digite sua senha"
+        text.placeholder = DSM.Constants.Keys.textPasswordPlaceholder.value
+        text.isSecureTextEntry = true
         text.textColor = .black
         text.setLeftPaddingPoints(15)
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -71,8 +73,8 @@ class LoginView: UIView {
     let imageIconPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "iconEye"), for: .normal)
-        button.tintColor = .black
+        button.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value), for: .normal)
+        button.tintColor = .systemGray
         button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
     }()
@@ -80,7 +82,7 @@ class LoginView: UIView {
     let swPassword: UISwitch = {
         let sw = UISwitch()
         sw.translatesAutoresizingMaskIntoConstraints = false
-        sw.thumbTintColor = .systemGray2
+        sw.thumbTintColor = .systemGray
         sw.onTintColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return sw
     }()
@@ -88,7 +90,7 @@ class LoginView: UIView {
     let swPasswordDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Lembrar senha"
+        label.text = DSM.Constants.Keys.swPasswordDescription.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -97,7 +99,7 @@ class LoginView: UIView {
     let buttonEnter: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Entrar", for: .normal)
+        button.setTitle(DSM.Constants.Keys.buttonEnter.value, for: .normal)
         button.setTitleColor(
             UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
             for: .normal
@@ -113,7 +115,7 @@ class LoginView: UIView {
     let buttonRegister: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Casdastrar-se", for: .normal)
+        button.setTitle(DSM.Constants.Keys.buttonRegister.value, for: .normal)
         button.setTitleColor(
             UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
             for: .normal
@@ -122,6 +124,7 @@ class LoginView: UIView {
         button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(onRegisterTap), for: .touchUpInside)
         return button
     }()
     override init(frame: CGRect) {
@@ -181,7 +184,7 @@ class LoginView: UIView {
             imageIconPassword.centerYAnchor.constraint(equalTo: textPassword.centerYAnchor),
             imageIconPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
             imageIconPassword.heightAnchor.constraint(equalToConstant: 20),
-            imageIconPassword.widthAnchor.constraint(equalToConstant: 20),
+            imageIconPassword.widthAnchor.constraint(equalToConstant: 25),
             
             swPassword.topAnchor.constraint(equalTo: textPassword.bottomAnchor, constant: 30),
             swPassword.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -213,9 +216,9 @@ class LoginView: UIView {
         textPassword.isSecureTextEntry.toggle()
         
         if textPassword.isSecureTextEntry {
-            imageIconPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         } else {
-            imageIconPassword.setImage(UIImage(named: "iconEye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(named: DSM.Constants.Keys.imageIconOpen.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         }
         self.onSecurityKey?()
     }
@@ -226,5 +229,10 @@ class LoginView: UIView {
            let password = textPassword.text {
             self.onLogin?(email, password)
         }
+    }
+    
+    @objc
+    private func onRegisterTap() {
+        onRegister?()
     }
 }

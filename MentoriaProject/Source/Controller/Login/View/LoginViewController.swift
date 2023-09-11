@@ -9,12 +9,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var onSuccessTap: (()-> Void)?
+    var onSuccess: (() -> Void)?
+    var onRegisterTap: (() -> Void)?
     
     lazy var viewLogin: LoginView = {
         let view = LoginView()
-        view.onLogin = { email, password in
-            self.setupRequest(email, password)
+        view.onLogin = { [weak self] email, password in
+            self?.setupRequest(email, password)
+        }
+        view.onRegister = { [weak self] in
+            self?.nextRegister()
         }
         return view
     }()
@@ -35,7 +39,7 @@ class LoginViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(_):
-                self.onSuccessTap?()
+                self.nextHome()
             case .failure(let error):
                 self.showMessageError(title: "Error", message: error.localizedDescription)
             }
@@ -47,6 +51,16 @@ class LoginViewController: UIViewController {
         let action = UIAlertAction(title: "OK", style: .destructive)
         alert.addAction(action)
         self.present(alert, animated: true)
+    }
+    
+    private func nextHome() {
+        let coordinator = Coordinator(navigationController: navigationController)
+        coordinator.startHome()
+    }
+    
+    private func nextRegister() {
+        let coordinator = Coordinator(navigationController: navigationController)
+        coordinator.startRegister()
     }
 }
 

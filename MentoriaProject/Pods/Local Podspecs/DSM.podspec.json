@@ -10,10 +10,10 @@
   "source": {
     "path": "../Exemplo-DSM/Source"
   },
-  "swift_versions": "14.3",
+  "swift_versions": "5.0",
   "platforms": {
     "ios": "13.0"
   },
   "source_files": "DSM/**/**/**/**/*",
-  "swift_version": "14.3"
+  "swift_version": "5.0"
 }
