@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController {
     }
     
     private func errorPasswordIncorret() {
-        self.showMessageError(title: "Error", message: "Senha Digitada errada")
+        self.showMessageError(title: "Error", message: "Senha não confere")
     }
     
     private func showMessageError(title: String, message: String) {

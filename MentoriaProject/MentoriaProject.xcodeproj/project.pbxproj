@@ -20,6 +20,11 @@
 		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
 		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
 		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
+		B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */; };
+		B67BDDDE2AAF86FF00F77A1E /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */; };
+		B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDF2AAF974400F77A1E /* ThemeById.swift */; };
+		B67BDDE22AAFA16300F77A1E /* ThemeComponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDE12AAFA16300F77A1E /* ThemeComponentList.swift */; };
+		B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDE32AAFA28F00F77A1E /* ThemeComponentById.swift */; };
 		B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD02AAD80EC004ED703 /* Coordinator.swift */; };
 		B6810AD42AAD83D9004ED703 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD32AAD83D9004ED703 /* HomeViewController.swift */; };
 		B683928F2AAD3AA4000F8F5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */; };
@@ -49,6 +54,11 @@
 		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
+		B67BDDDF2AAF974400F77A1E /* ThemeById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeById.swift; sourceTree = "<group>"; };
+		B67BDDE12AAFA16300F77A1E /* ThemeComponentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeComponentList.swift; sourceTree = "<group>"; };
+		B67BDDE32AAFA28F00F77A1E /* ThemeComponentById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeComponentById.swift; sourceTree = "<group>"; };
 		B6810AD02AAD80EC004ED703 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B6810AD32AAD83D9004ED703 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 		B60A99C02AA67689007983E0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B67BDDD82AAF83F500F77A1E /* APIService */,
 				B6810ACF2AAD80D6004ED703 /* Coordinator */,
 				B68392A12AAD5149000F8F5C /* Helpers */,
 				B60A99C12AA676B2007983E0 /* Controller */,
@@ -162,6 +173,26 @@
 				B60A99D12AA69441007983E0 /* RegisterViewModel.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		B67BDDD82AAF83F500F77A1E /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */,
+				B67BDDDC2AAF86E900F77A1E /* Model */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		B67BDDDC2AAF86E900F77A1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */,
+				B67BDDDF2AAF974400F77A1E /* ThemeById.swift */,
+				B67BDDE12AAFA16300F77A1E /* ThemeComponentList.swift */,
+				B67BDDE32AAFA28F00F77A1E /* ThemeComponentById.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B6810ACF2AAD80D6004ED703 /* Coordinator */ = {
@@ -391,12 +422,17 @@
 				B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */,
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
 				B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */,
+				B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
 				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
+				B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */,
 				B68392942AAD3F80000F8F5C /* Worker.swift in Sources */,
 				B68392A32AAD515B000F8F5C /* Constants.swift in Sources */,
+				B67BDDDE2AAF86FF00F77A1E /* ThemeList.swift in Sources */,
 				B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */,
+				B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */,
 				B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */,
+				B67BDDE22AAFA16300F77A1E /* ThemeComponentList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
