@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import DSM
 
 class RegisterView: UIView {
     
@@ -17,7 +18,7 @@ class RegisterView: UIView {
     let labelEmail: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "E-mail"
+        label.text = DSM.Constants.Keys.labelEmail.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -26,7 +27,6 @@ class RegisterView: UIView {
     let textEmail: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "Digite seu email"
         text.setLeftPaddingPoints(15)
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -36,7 +36,7 @@ class RegisterView: UIView {
         text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
                .foregroundColor: UIColor.black]
-        let attributedPlaceholder = NSAttributedString(string: "Digite seu email", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textEmailPlaceholder.value, attributes: placeholderAttributes)
            text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
@@ -45,14 +45,14 @@ class RegisterView: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.image = UIImage(named: "iconEmail")
+        image.image = UIImage(named: DSM.Constants.Keys.imageIconEmail.value)
         return image
     }()
     
     let labelPassword: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Senha"
+        label.text = DSM.Constants.Keys.labelPassword.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -61,7 +61,6 @@ class RegisterView: UIView {
     let textPassword: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "Digite sua senha"
         text.setLeftPaddingPoints(15)
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -72,7 +71,7 @@ class RegisterView: UIView {
         text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
                .foregroundColor: UIColor.black]
-        let attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textPasswordPlaceholder.value, attributes: placeholderAttributes)
            text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
@@ -80,8 +79,8 @@ class RegisterView: UIView {
     let imageIconPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        button.tintColor = .black
+        button.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value), for: .normal)
+        button.tintColor = .systemGray
         button.addTarget(self, action: #selector(setupIconPassword), for: .touchUpInside)
         return button
     }()
@@ -89,7 +88,7 @@ class RegisterView: UIView {
     let labelConfirmePassword: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Repita sua senha"
+        label.text = DSM.Constants.Keys.labelConfirmePassword.value
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return label
@@ -98,7 +97,6 @@ class RegisterView: UIView {
     let textConfirmePassword: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "Digite sua senha"
         text.setLeftPaddingPoints(15)
         text.textColor = .black
         text.font = .systemFont(ofSize: 18, weight: .regular)
@@ -109,7 +107,7 @@ class RegisterView: UIView {
         text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
                .foregroundColor: UIColor.black]
-        let attributedPlaceholder = NSAttributedString(string: "Digite sua senha", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textConfirmePassword.value, attributes: placeholderAttributes)
            text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
@@ -117,8 +115,8 @@ class RegisterView: UIView {
     let imageIconConfirmPassword: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        button.tintColor = .black
+        button.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value), for: .normal)
+        button.tintColor = .systemGray
         button.addTarget(self, action: #selector(setupIconConfirmPassword), for: .touchUpInside)
         return button
     }()
@@ -229,9 +227,9 @@ class RegisterView: UIView {
         textPassword.isSecureTextEntry.toggle()
         
         if textPassword.isSecureTextEntry {
-            imageIconPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         } else {
-            imageIconPassword.setImage(UIImage(systemName: "eye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(named: DSM.Constants.Keys.imageIconOpen.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         }
         self.onSecurityKey?()
     }
@@ -240,9 +238,9 @@ class RegisterView: UIView {
         textConfirmePassword.isSecureTextEntry.toggle()
         
         if textConfirmePassword.isSecureTextEntry {
-            imageIconConfirmPassword.setImage(UIImage(systemName: "eye.slash")?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconConfirmPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         } else {
-            imageIconConfirmPassword.setImage(UIImage(systemName: "eye")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconConfirmPassword.setImage(UIImage(named: DSM.Constants.Keys.imageIconOpen.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
         }
         self.onSecurityKey?()
     }
