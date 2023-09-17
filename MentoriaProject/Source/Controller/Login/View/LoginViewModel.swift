@@ -34,4 +34,16 @@ class LoginViewModel {
             completion(.failure(error))
         }
     }
+    
+    public func isValidEmail(email: String) -> Bool {
+        let regex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return predicate.evaluate(with: email)
+    }
+    
+    public func isValidPassword(password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[0-9\\W]).+$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
 }

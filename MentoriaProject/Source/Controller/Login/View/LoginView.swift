@@ -14,6 +14,21 @@ class LoginView: UIView {
     var onLogin: ((_ email: String, _ password: String)-> Void)?
     var onRegister: (() -> Void)?
     var onSecurityKey: (()-> Void)?
+    var onError: ((_ title: String, _ message: String) -> Void)?
+    
+    let loading: UIActivityIndicatorView = {
+        let load = UIActivityIndicatorView()
+        load.translatesAutoresizingMaskIntoConstraints = false
+        load.frame.size = CGSize(width: 50, height: 50)
+        let scale = CGAffineTransform(scaleX: 2, y: 2)
+        load.transform = scale
+        load.color = .black
+        load.backgroundColor = .lightGray
+        load.layer.cornerRadius = 10
+        load.layer.borderWidth = 1
+        load.layer.borderColor = UIColor.white.cgColor
+        return load
+    }()
     
     let labelEmail: UILabel = {
         let label = UILabel()
@@ -78,7 +93,7 @@ class LoginView: UIView {
         button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
     }()
-
+    
     let swPassword: UISwitch = {
         let sw = UISwitch()
         sw.translatesAutoresizingMaskIntoConstraints = false
@@ -150,7 +165,8 @@ class LoginView: UIView {
             swPassword,
             swPasswordDescription,
             buttonEnter,
-            buttonRegister
+            buttonRegister,
+            loading
         )
     }
     
@@ -204,6 +220,11 @@ class LoginView: UIView {
             buttonRegister.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             buttonRegister.heightAnchor.constraint(equalToConstant: 48),
+            
+            loading.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            loading.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            loading.widthAnchor.constraint(equalToConstant: 70),
+            loading.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     
@@ -225,9 +246,48 @@ class LoginView: UIView {
     
     @objc
     private func onLoginTap() {
+        let viewModel = LoginViewModel()
+        var errorMessages: [String] = []
+        
         if let email = textEmail.text,
            let password = textPassword.text {
-            self.onLogin?(email, password)
+            if viewModel.isValidEmail(email: email) && viewModel.isValidPassword(password: password) {
+                self.onLogin?(email, password)
+            } else {
+                if email.isEmpty {
+                    errorMessages.append("Digite seu email")
+                }
+                
+                let regex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
+                if !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: email) {
+                    errorMessages.append("o email é invalido, ex: email@email.com")
+                }
+                
+                if password.isEmpty {
+                    errorMessages.append("A senha não pode estar em branco.")
+                }
+                
+                if password.count < 6 {
+                    errorMessages.append("A senha deve ter pelo menos 6 caracteres.")
+                }
+                
+                let uppercaseRegex = ".*[A-Z]+.*"
+                if !NSPredicate(format: "SELF MATCHES %@", uppercaseRegex).evaluate(with: password) {
+                    errorMessages.append("A senha deve conter pelo menos uma letra maiúscula.")
+                }
+                
+                let numberOrSpecialCharRegex = ".*[0-9\\W]+.*"
+                if !NSPredicate(format: "SELF MATCHES %@", numberOrSpecialCharRegex).evaluate(with: password) {
+                    errorMessages.append("A senha deve conter pelo menos um número ou caractere especial.")
+                }
+            }
+            
+            if errorMessages.isEmpty {
+                self.onLogin?(email, password)
+            } else {
+                let errorMessage = errorMessages.joined(separator: "\n")
+                self.onError?("OK", errorMessage)
+            }
         }
     }
     

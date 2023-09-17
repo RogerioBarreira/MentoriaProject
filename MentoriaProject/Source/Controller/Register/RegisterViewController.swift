@@ -39,11 +39,16 @@ class RegisterViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(_):
-                self.onSuccess?()
+                self.showMessageError(title: "Success", message: "Cadastro Realizado com Sucesso! ✅\n Volte ao Login")
             case .failure(let error):
                 self.showMessageError(title: "Error", message: error.localizedDescription)
             }
         }
+    }
+    
+    private func nextLogin() {
+        let coordinator = Coordinator(navigationController: navigationController)
+        coordinator.start()
     }
     
     private func errorPasswordIncorret() {
