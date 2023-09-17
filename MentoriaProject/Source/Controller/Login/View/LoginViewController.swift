@@ -9,9 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var onSuccess: (() -> Void)?
-    var onRegisterTap: (() -> Void)?
-    
     lazy var viewLogin: LoginView = {
         let view = LoginView()
         view.onLogin = { [weak self] email, password in
@@ -20,8 +17,14 @@ class LoginViewController: UIViewController {
         view.onRegister = { [weak self] in
             self?.nextRegister()
         }
+        view.onError = { [weak self] title, error in
+            guard let self = self else { return }
+            self.showMessageError(title: title, message: error)
+        }
         return view
     }()
+    
+    let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +37,15 @@ class LoginViewController: UIViewController {
     }
     
     func setupRequest(_ email: String, _ password: String) {
-        let viewModel = LoginViewModel()
+        viewLogin.loading.startAnimating()
         viewModel.getUserFromApi(user: email, password: password) { [weak self] result in
             guard let self = self else { return }
+            self.viewLogin.loading.stopAnimating()
             switch result {
             case .success(_):
                 self.nextHome()
-            case .failure(let error):
-                self.showMessageError(title: "Error", message: error.localizedDescription)
+            case .failure(let failure):
+                self.showMessageError(title: "Erro", message: failure.localizedDescription)
             }
         }
     }
