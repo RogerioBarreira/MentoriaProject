@@ -303,9 +303,19 @@ class RegisterView: UIView {
                     errorMessages.append("A senha deve conter pelo menos uma letra maiúscula.")
                 }
                 
-                let numberOrSpecialCharRegex = ".*[0-9\\W]+.*"
-                if !NSPredicate(format: "SELF MATCHES %@", numberOrSpecialCharRegex).evaluate(with: password) {
-                    errorMessages.append("A senha deve conter pelo menos um número ou caractere especial.")
+                let lowercaseRegex = ".*[a-z]+.*"
+                if !NSPredicate(format: "SELF MATCHES %@", lowercaseRegex).evaluate(with: password) {
+                    errorMessages.append("A senha deve conter pelo menos uma letra minúscula.")
+                }
+                
+                let digitRegex = ".*[0-9]+.*"
+                if !NSPredicate(format: "SELF MATCHES %@", digitRegex).evaluate(with: password) {
+                    errorMessages.append("A senha deve conter pelo menos um número.")
+                }
+                
+                let specialCharRegex = ".*[\\W]+.*"
+                if !NSPredicate(format: "SELF MATCHES %@", specialCharRegex).evaluate(with: password) {
+                    errorMessages.append("A senha deve conter pelo menos um caractere especial.")
                 }
                 
                 if errorMessages.isEmpty {
