@@ -42,7 +42,7 @@ class RegisterViewModel {
     }
     
     public func isValidPassword(password: String) -> Bool {
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[0-9\\W]).+$"
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\\W]).+$"
         let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordPredicate.evaluate(with: password)
     }
