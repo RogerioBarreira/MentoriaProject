@@ -15,6 +15,7 @@ class LoginView: UIView {
     var onRegister: (() -> Void)?
     var onSecurityKey: (()-> Void)?
     var onError: ((_ title: String, _ message: String) -> Void)?
+    var onSWTap: ((_ sender: Bool) -> Void)?
     
     let loading: UIActivityIndicatorView = {
         let load = UIActivityIndicatorView()
@@ -42,14 +43,17 @@ class LoginView: UIView {
     let textEmail: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = DSM.Constants.Keys.textEmailPlaceholder.value
+        text.setLeftPaddingPoints(8)
         text.textColor = .black
-        text.setLeftPaddingPoints(15)
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 7
+        text.layer.cornerRadius = 8
         text.clipsToBounds = true
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+        let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textEmailPlaceholder.value, attributes: placeholderAttributes)
+        text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
     
@@ -57,7 +61,8 @@ class LoginView: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.image = UIImage(named: DSM.Constants.Keys.imageIconEmail.value)
+        image.image = UIImage(systemName: DSM.Constants.Keys.imageIconEmail.value)
+        image.tintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
         return image
     }()
     
@@ -73,15 +78,18 @@ class LoginView: UIView {
     let textPassword: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = DSM.Constants.Keys.textPasswordPlaceholder.value
-        text.isSecureTextEntry = true
+        text.setLeftPaddingPoints(8)
         text.textColor = .black
-        text.setLeftPaddingPoints(15)
         text.font = .systemFont(ofSize: 18, weight: .regular)
         text.autocapitalizationType = .none
+        text.isSecureTextEntry = true
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 7
+        text.layer.cornerRadius = 8
         text.clipsToBounds = true
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+        let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textPasswordPlaceholder.value, attributes: placeholderAttributes)
+        text.attributedPlaceholder = attributedPlaceholder
         return text
     }()
     
@@ -89,16 +97,23 @@ class LoginView: UIView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value), for: .normal)
-        button.tintColor = .systemGray
+        button.tintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
         button.addTarget(self, action: #selector(setupPasswordTap), for: .touchUpInside)
         return button
     }()
     
-    let swPassword: UISwitch = {
+    var swPassword: UISwitch = {
         let sw = UISwitch()
         sw.translatesAutoresizingMaskIntoConstraints = false
-        sw.thumbTintColor = .systemGray
-        sw.onTintColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        sw.thumbTintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
+        sw.onTintColor = .green
+        sw.tintAdjustmentMode = .normal
+        sw.layer.borderColor = CGColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
+        sw.layer.borderWidth = 1
+        sw.layer.backgroundColor = UIColor.white.cgColor
+        sw.layer.cornerRadius = 16
+        sw.clipsToBounds = true
+        sw.addTarget(self, action: #selector(swTap(_:)), for: .valueChanged)
         return sw
     }()
     
@@ -119,7 +134,7 @@ class LoginView: UIView {
             UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
             for: .normal
         )
-        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .bold)
+        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .semibold)
         button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
@@ -135,7 +150,7 @@ class LoginView: UIView {
             UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
             for: .normal
         )
-        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .bold)
+        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .semibold)
         button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
@@ -144,7 +159,7 @@ class LoginView: UIView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .darkGray
+        self.backgroundColor = UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0)
         addElementsVisual()
         configConstraints()
     }
@@ -172,53 +187,54 @@ class LoginView: UIView {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
-            labelEmail.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 122),
+            labelEmail.topAnchor.constraint(equalTo: self.topAnchor, constant: 144),
             labelEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelEmail.widthAnchor.constraint(equalToConstant: 70),
             labelEmail.heightAnchor.constraint(equalToConstant: 21),
             
-            textEmail.topAnchor.constraint(equalTo: labelEmail.bottomAnchor, constant: 7),
+            textEmail.topAnchor.constraint(equalTo: labelEmail.bottomAnchor, constant: 16),
             textEmail.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             textEmail.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textEmail.heightAnchor.constraint(equalToConstant: 40),
+            textEmail.heightAnchor.constraint(equalToConstant: 48),
             
             imageIconEmail.centerYAnchor.constraint(equalTo: textEmail.centerYAnchor),
             imageIconEmail.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
-            imageIconEmail.heightAnchor.constraint(equalToConstant: 20),
-            imageIconEmail.widthAnchor.constraint(equalToConstant: 20),
+            imageIconEmail.heightAnchor.constraint(equalToConstant: 20.47),
+            imageIconEmail.widthAnchor.constraint(equalToConstant: 21.71),
             
-            labelPassword.topAnchor.constraint(equalTo: textEmail.bottomAnchor, constant: 20),
+            labelPassword.topAnchor.constraint(equalTo: textEmail.bottomAnchor, constant: 24),
             labelPassword.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelPassword.widthAnchor.constraint(equalToConstant: 70),
             labelPassword.heightAnchor.constraint(equalToConstant: 21),
             
-            textPassword.topAnchor.constraint(equalTo: labelPassword.bottomAnchor, constant: 7),
+            textPassword.topAnchor.constraint(equalTo: labelPassword.bottomAnchor, constant: 16),
             textPassword.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             textPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textPassword.heightAnchor.constraint(equalToConstant: 40),
+            textPassword.heightAnchor.constraint(equalToConstant: 48),
             
             imageIconPassword.centerYAnchor.constraint(equalTo: textPassword.centerYAnchor),
             imageIconPassword.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
-            imageIconPassword.heightAnchor.constraint(equalToConstant: 20),
-            imageIconPassword.widthAnchor.constraint(equalToConstant: 25),
+            imageIconPassword.heightAnchor.constraint(equalToConstant: 24.67),
+            imageIconPassword.widthAnchor.constraint(equalToConstant: 32.03),
             
-            swPassword.topAnchor.constraint(equalTo: textPassword.bottomAnchor, constant: 30),
+            swPassword.topAnchor.constraint(equalTo: textPassword.bottomAnchor, constant: 16),
             swPassword.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            swPassword.heightAnchor.constraint(equalToConstant: 30),
+            swPassword.widthAnchor.constraint(equalToConstant: 51),
+            swPassword.heightAnchor.constraint(equalToConstant: 31),
             
             swPasswordDescription.centerYAnchor.constraint(equalTo: swPassword.centerYAnchor),
             swPasswordDescription.leadingAnchor.constraint(equalTo: swPassword.trailingAnchor, constant: 10),
             swPasswordDescription.widthAnchor.constraint(equalToConstant: 150),
             swPasswordDescription.heightAnchor.constraint(equalToConstant: 21),
             
-            buttonEnter.topAnchor.constraint(equalTo: swPasswordDescription.bottomAnchor, constant: 40),
-            buttonEnter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            buttonEnter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            buttonEnter.topAnchor.constraint(equalTo: swPasswordDescription.bottomAnchor, constant: 48),
+            buttonEnter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 43),
+            buttonEnter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
             buttonEnter.heightAnchor.constraint(equalToConstant: 48),
             
-            buttonRegister.topAnchor.constraint(equalTo: buttonEnter.bottomAnchor, constant: 10),
-            buttonRegister.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            buttonRegister.topAnchor.constraint(equalTo: buttonEnter.bottomAnchor, constant: 16),
+            buttonRegister.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 43),
+            buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
             buttonRegister.heightAnchor.constraint(equalToConstant: 48),
             
             loading.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -237,9 +253,9 @@ class LoginView: UIView {
         textPassword.isSecureTextEntry.toggle()
         
         if textPassword.isSecureTextEntry {
-            imageIconPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconPasswordClose.value)?.withTintColor(UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0), renderingMode: .alwaysOriginal), for: .normal)
         } else {
-            imageIconPassword.setImage(UIImage(named: DSM.Constants.Keys.imageIconOpen.value)?.withTintColor(.systemGray, renderingMode: .alwaysOriginal), for: .normal)
+            imageIconPassword.setImage(UIImage(systemName: DSM.Constants.Keys.imageIconOpen.value)?.withTintColor(UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0), renderingMode: .alwaysOriginal), for: .normal)
         }
         self.onSecurityKey?()
     }
@@ -260,7 +276,7 @@ class LoginView: UIView {
                 
                 let regex = #"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
                 if !NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: email) {
-                    errorMessages.append("o email é invalido, ex: email@email.com")
+                    errorMessages.append("o email esta fora do padrão, ex: email@email.com")
                 }
                 
                 if password.isEmpty {
@@ -280,13 +296,13 @@ class LoginView: UIView {
                 if !NSPredicate(format: "SELF MATCHES %@", numberOrSpecialCharRegex).evaluate(with: password) {
                     errorMessages.append("A senha deve conter pelo menos um número ou caractere especial.")
                 }
-            }
-            
-            if errorMessages.isEmpty {
-                self.onLogin?(email, password)
-            } else {
-                let errorMessage = errorMessages.joined(separator: "\n")
-                self.onError?("OK", errorMessage)
+                
+                if errorMessages.isEmpty {
+                    self.onLogin?(email, password)
+                } else {
+                    let errorMessage = errorMessages.joined(separator: "\n")
+                    self.onError?("OK", errorMessage)
+                }
             }
         }
     }
@@ -294,5 +310,10 @@ class LoginView: UIView {
     @objc
     private func onRegisterTap() {
         onRegister?()
+    }
+    
+    @objc
+    func swTap(_ sender: Bool) {
+        onSWTap?(sender)
     }
 }

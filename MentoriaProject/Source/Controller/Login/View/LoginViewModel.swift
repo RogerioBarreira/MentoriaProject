@@ -10,6 +10,7 @@ import Foundation
 class LoginViewModel {
     
     private let model: UserModel
+    var defaults: UserDefaults = UserDefaults.standard
     
     init(model: UserModel) {
         self.model = model
@@ -32,6 +33,15 @@ class LoginViewModel {
             completion(.success(LoginViewModel(model: userModel)))
         } completionFailure: { error in
             completion(.failure(error))
+        }
+    }
+    
+    var saveEmail: Bool {
+        get {
+            return defaults.bool(forKey: "saveEmail")
+        }
+        set {
+            defaults.set(newValue, forKey: "saveEmail")
         }
     }
     
