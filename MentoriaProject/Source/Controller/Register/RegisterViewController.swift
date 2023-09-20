@@ -10,22 +10,22 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    var onSuccess: (()-> Void)?
-    
     lazy var viewRegister: RegisterView = {
         let view = RegisterView()
         view.onRegisterTap = { [weak self] email, password in
             self?.setupRequest(email, password)
         }
-        view.onError = { [weak self] in
-            self?.errorPasswordIncorret()
+        view.onError = { [weak self]  title, error in
+            self?.showMessageError(title: title, message: error)
         }
         return view
     }()
+    
+    let viewModel = RegisterViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Cadastrar"
+        self.title = "Cadastro"
         viewRegister.setupTextField(delegate: self)
     }
     
@@ -34,9 +34,10 @@ class RegisterViewController: UIViewController {
     }
     
     func setupRequest(_ email: String, _ password: String) {
-        let viewModel = RegisterViewModel()
+        viewRegister.loading.startAnimating()
         viewModel.getUserFromApi(user: email, password: password) { [weak self] result in
             guard let self = self else { return }
+            self.viewRegister.loading.stopAnimating()
             switch result {
             case .success(_):
                 self.showMessageError(title: "Success", message: "Cadastro Realizado com Sucesso! ✅\n Volte ao Login")
@@ -44,11 +45,6 @@ class RegisterViewController: UIViewController {
                 self.showMessageError(title: "Error", message: error.localizedDescription)
             }
         }
-    }
-    
-    private func nextLogin() {
-        let coordinator = Coordinator(navigationController: navigationController)
-        coordinator.start()
     }
     
     private func errorPasswordIncorret() {
