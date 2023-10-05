@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ProfileViewController.swift
 //  MentoriaProject
 //
 //  Created by Rogerio Martins on 10/09/23.
@@ -8,12 +8,19 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class ProfileViewController: UIViewController {
+    
+    lazy var viewProfile: ProfileView = {
+        let view = ProfileView()
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        self.title = "Home ViewController"
+    }
+    
+    override func loadView() {
+        self.view = viewProfile
     }
     
     override func viewWillAppear(_ animated: Bool) {

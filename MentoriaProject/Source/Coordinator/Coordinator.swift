@@ -29,8 +29,13 @@ class Coordinator {
         self.navigationController.pushViewController(vc, animated: true)
     }
     
-    func startHome() {
-        let vc = HomeViewController()
+    func startProfile() {
+        let vc = ProfileViewController()
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func startTabBar() {
+        let vc = HomeTabBarController()
         self.navigationController.pushViewController(vc, animated: true)
     }
 }

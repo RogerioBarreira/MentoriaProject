@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
     
@@ -24,6 +25,10 @@ class LoginViewController: UIViewController {
         view.onError = { [weak self] title, error in
             guard let self = self else { return }
             self.showMessageError(title: title, message: error)
+        }
+        view.onThouch = { [weak self] in
+            guard let self = self else { return }
+            self.autenticBiometric()
         }
         return view
     }()
@@ -67,6 +72,7 @@ class LoginViewController: UIViewController {
         viewModel.getUserFromApi(user: email, password: password) { [weak self] result in
             guard let self = self else { return }
             self.viewLogin.loading.stopAnimating()
+            
             switch result {
             case .success(_):
                 if viewLogin.swPassword.isOn {
@@ -74,8 +80,9 @@ class LoginViewController: UIViewController {
                     self.viewModel.defaults.set(email, forKey: "savedEmail")
                 }
                 self.nextHome()
+                self.showMessageError(title: "Successo ✅", message: "Login Realizado com Successo")
             case .failure(let failure):
-                self.showMessageError(title: "Erro", message: failure.localizedDescription)
+                self.showMessageError(title: "Erro ao Logar ❌", message: failure.localizedDescription)
                 self.viewModel.saveEmail = false
                 self.viewModel.defaults.removeObject(forKey: "savedEmail")
             }
@@ -98,7 +105,35 @@ class LoginViewController: UIViewController {
         if viewModel.saveEmail {
             if let savedEmail = viewModel.defaults.string(forKey: "savedEmail") {
                 viewLogin.textEmail.text = savedEmail
+                viewLogin.swPassword.isOn = true
+            } else {
+                viewLogin.swPassword.isOn = false
             }
+        }
+    }
+    
+    func autenticBiometric() {
+        let context = LAContext()
+        var error: NSError?
+        let reason = "Informe sua autenticação"
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
+                
+                if success {
+                    DispatchQueue.main.async {
+                        self.nextHome()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                            self.showMessageError(title: "Successo ✅", message: "Autenticação realizada com Successo")
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.showMessageError(title: "Erro ❌", message: "Erro na autenticação")
+                    }
+                }
+            }
+        } else {
+            self.showMessageError(title: "Erro ❌", message: "Autenticação indisponível")
         }
     }
     
@@ -111,7 +146,7 @@ class LoginViewController: UIViewController {
     
     private func nextHome() {
         let coordinator = Coordinator(navigationController: navigationController)
-        coordinator.startHome()
+        coordinator.startTabBar()
     }
     
     private func nextRegister() {
@@ -129,7 +164,7 @@ extension LoginViewController: UITextFieldDelegate {
             let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
             return newText.count <= maxLength
         } else if textField == viewLogin.textPassword {
-            let maxLength = 25
+            let maxLength = 15
             let currentText = viewLogin.textPassword.text ?? ""
             let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
             return newText.count <= maxLength

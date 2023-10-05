@@ -42,7 +42,7 @@ class RegisterViewController: UIViewController {
             case .success(_):
                 self.showMessageError(title: "Success", message: "Cadastro Realizado com Sucesso! ✅\n Volte ao Login")
             case .failure(let error):
-                self.showMessageError(title: "Error", message: error.localizedDescription)
+                self.showMessageError(title: "Error ❌", message: "Erro ao Ralizar o Cadastro! \(error.localizedDescription)")
             }
         }
     }
