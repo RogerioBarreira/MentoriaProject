@@ -20,13 +20,16 @@
 		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
 		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
 		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
+		B64E0F042AC7723000CB8F30 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */; };
+		B64E0F072AC772CC00CB8F30 /* SettingsViewConstroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */; };
+		B64E0F0B2AC77E7400CB8F30 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F0A2AC77E7400CB8F30 /* ProfileView.swift */; };
 		B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */; };
 		B67BDDDE2AAF86FF00F77A1E /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */; };
 		B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDF2AAF974400F77A1E /* ThemeById.swift */; };
 		B67BDDE22AAFA16300F77A1E /* ThemeComponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDE12AAFA16300F77A1E /* ThemeComponentList.swift */; };
 		B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDE32AAFA28F00F77A1E /* ThemeComponentById.swift */; };
 		B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD02AAD80EC004ED703 /* Coordinator.swift */; };
-		B6810AD42AAD83D9004ED703 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD32AAD83D9004ED703 /* HomeViewController.swift */; };
+		B6810AD42AAD83D9004ED703 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6810AD32AAD83D9004ED703 /* ProfileViewController.swift */; };
 		B683928F2AAD3AA4000F8F5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */; };
 		B68392942AAD3F80000F8F5C /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392932AAD3F80000F8F5C /* Worker.swift */; };
 		B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683929D2AAD47D7000F8F5C /* UserModel.swift */; };
@@ -34,6 +37,8 @@
 		B68392A32AAD515B000F8F5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A22AAD515B000F8F5C /* Constants.swift */; };
 		B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A42AAD52EE000F8F5C /* UserManager.swift */; };
 		B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A62AAD546F000F8F5C /* UserBusiness.swift */; };
+		B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */; };
+		B6AD3B112ACBE1BA00DC8D0F /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,13 +59,16 @@
 		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewConstroller.swift; sourceTree = "<group>"; };
+		B64E0F0A2AC77E7400CB8F30 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
 		B67BDDDF2AAF974400F77A1E /* ThemeById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeById.swift; sourceTree = "<group>"; };
 		B67BDDE12AAFA16300F77A1E /* ThemeComponentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeComponentList.swift; sourceTree = "<group>"; };
 		B67BDDE32AAFA28F00F77A1E /* ThemeComponentById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeComponentById.swift; sourceTree = "<group>"; };
 		B6810AD02AAD80EC004ED703 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		B6810AD32AAD83D9004ED703 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B6810AD32AAD83D9004ED703 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B683928E2AAD3AA3000F8F5C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B68392932AAD3F80000F8F5C /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Worker.swift; path = "../../../../Exemplo-DSM/Source/Worker.swift"; sourceTree = "<group>"; };
 		B683929D2AAD47D7000F8F5C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../../../../SDKNet/Source/Network/Provider/UserModel.swift; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 		B68392A22AAD515B000F8F5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B68392A42AAD52EE000F8F5C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B68392A62AAD546F000F8F5C /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
+		B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +149,10 @@
 		B60A99C12AA676B2007983E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B6810AD22AAD83BB004ED703 /* Home */,
+				B6AD3B0D2ACBE15400DC8D0F /* Schedule */,
+				B64E0F052AC772A800CB8F30 /* Settings */,
+				B64E0F022AC7715B00CB8F30 /* TabBar */,
+				B6810AD22AAD83BB004ED703 /* Profile */,
 				B60A99C22AA676BA007983E0 /* Login */,
 				B60A99CC2AA69406007983E0 /* Register */,
 			);
@@ -175,6 +188,39 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		B64E0F022AC7715B00CB8F30 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B64E0F082AC77E4A00CB8F30 /* View */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B64E0F052AC772A800CB8F30 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B64E0F082AC77E4A00CB8F30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B64E0F092AC77E5700CB8F30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B64E0F0A2AC77E7400CB8F30 /* ProfileView.swift */,
+				B6810AD32AAD83D9004ED703 /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B67BDDD82AAF83F500F77A1E /* APIService */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,12 +249,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		B6810AD22AAD83BB004ED703 /* Home */ = {
+		B6810AD22AAD83BB004ED703 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				B6810AD32AAD83D9004ED703 /* HomeViewController.swift */,
+				B64E0F092AC77E5700CB8F30 /* View */,
 			);
-			path = Home;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B68392902AAD3DD5000F8F5C /* View */ = {
@@ -285,6 +331,15 @@
 				B68392A22AAD515B000F8F5C /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B6AD3B0D2ACBE15400DC8D0F /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */,
+				B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		C3185EA626BE632095156187 /* Frameworks */ = {
@@ -412,10 +467,11 @@
 			files = (
 				B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */,
 				B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */,
+				B64E0F0B2AC77E7400CB8F30 /* ProfileView.swift in Sources */,
 				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
 				B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */,
 				B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */,
-				B6810AD42AAD83D9004ED703 /* HomeViewController.swift in Sources */,
+				B6810AD42AAD83D9004ED703 /* ProfileViewController.swift in Sources */,
 				B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */,
 				B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */,
 				B68392A02AAD48E6000F8F5C /* UserProvider.swift in Sources */,
@@ -423,8 +479,12 @@
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
 				B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */,
 				B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */,
+				B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
+				B64E0F042AC7723000CB8F30 /* HomeTabBarController.swift in Sources */,
 				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
+				B64E0F072AC772CC00CB8F30 /* SettingsViewConstroller.swift in Sources */,
+				B6AD3B112ACBE1BA00DC8D0F /* ScheduleViewController.swift in Sources */,
 				B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */,
 				B68392942AAD3F80000F8F5C /* Worker.swift in Sources */,
 				B68392A32AAD515B000F8F5C /* Constants.swift in Sources */,
@@ -574,6 +634,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Ë necessário a utilização do FaceId par aesse App";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -603,6 +664,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Ë necessário a utilização do FaceId par aesse App";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

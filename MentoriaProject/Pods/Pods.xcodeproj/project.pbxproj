@@ -345,6 +345,14 @@
 		B52F70D495559FEE959B43109A43735E /* FIRResetPasswordResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 71268CD6C7D1E94D44D35B855145965B /* FIRResetPasswordResponse.m */; };
 		B548FD0DD29BF0DDAFE6973154B2D81A /* FIRApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C4C688613DB1DBA9CCEE2A8CDBC72E2 /* FIRApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B56AA5FCBE1759890914E3A6FDCF7A19 /* FIRFacebookAuthProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D18C2FED88B852B41809873B8FB1D9C2 /* FIRFacebookAuthProvider.m */; };
+		B65F950C2ABF5A2C002F9B1A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F950B2ABF5A2C002F9B1A /* CustomLabel.swift */; };
+		B65F950D2ABF5A2C002F9B1A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F950B2ABF5A2C002F9B1A /* CustomLabel.swift */; };
+		B65F950F2ABF60AD002F9B1A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F950E2ABF60AD002F9B1A /* CustomTextField.swift */; };
+		B65F95102ABF60AD002F9B1A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F950E2ABF60AD002F9B1A /* CustomTextField.swift */; };
+		B65F95132ABF6AA5002F9B1A /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F95122ABF6AA5002F9B1A /* CustomLoading.swift */; };
+		B65F95142ABF6AA5002F9B1A /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F95122ABF6AA5002F9B1A /* CustomLoading.swift */; };
+		B65F95182ABF71E4002F9B1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F95172ABF71E4002F9B1A /* CustomButton.swift */; };
+		B65F95192ABF71E4002F9B1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F95172ABF71E4002F9B1A /* CustomButton.swift */; };
 		B6653EA00C31D963E65484FE89714E55 /* FIRSignUpNewUserRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2FC08A30BA814ADF8DE0B4F3BC3426 /* FIRSignUpNewUserRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B66F7B80042D2E304DEB0AB3FD0E5D45 /* FirebaseAuth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD7663EB559A4976157C585042205E5 /* FirebaseAuth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6A69A931162ACCCE5A5F11425134A0D /* FIRAuthInternalErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = A18EFF9C6667B2C786A4773F59266089 /* FIRAuthInternalErrors.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -995,6 +1003,10 @@
 		B4784249190024B67F0665B72929E3AF /* GULSceneDelegateSwizzler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULSceneDelegateSwizzler.h; path = GoogleUtilities/AppDelegateSwizzler/Public/GoogleUtilities/GULSceneDelegateSwizzler.h; sourceTree = "<group>"; };
 		B53D360D4E524F37885258B55BF4C268 /* GULNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GULNSData+zlib.m"; path = "GoogleUtilities/NSData+zlib/GULNSData+zlib.m"; sourceTree = "<group>"; };
 		B5E7167F9C5CCA3F9FB3879F75071BC0 /* FirebaseAppCheckInterop-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FirebaseAppCheckInterop-Info.plist"; sourceTree = "<group>"; };
+		B65F950B2ABF5A2C002F9B1A /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		B65F950E2ABF60AD002F9B1A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B65F95122ABF6AA5002F9B1A /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
+		B65F95172ABF71E4002F9B1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B6B9425BFF8A0EFD2ABAF85A143357E4 /* SDKNET.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SDKNET.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B72810F012F06C7956ADDE12E0F13AA7 /* FBLPromise+Await.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Await.m"; path = "Sources/FBLPromises/FBLPromise+Await.m"; sourceTree = "<group>"; };
 		B743F19142D1E3FBC16450ED43EDF196 /* RCARecaptchaClientProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCARecaptchaClientProtocol.h; path = RecaptchaEnterprise/RecaptchaInterop/Public/RecaptchaInterop/RCARecaptchaClientProtocol.h; sourceTree = "<group>"; };
@@ -1417,9 +1429,13 @@
 		3E314440E8C2EE79DB416D4D230A0768 /* DSM */ = {
 			isa = PBXGroup;
 			children = (
+				B65F95152ABF719D002F9B1A /* CustomTextField */,
+				B65F95162ABF71C0002F9B1A /* CustomButton */,
+				E8022904DCA5825C8F39B36FB108C7A1 /* UIFontDefault */,
+				B65F95112ABF6A8A002F9B1A /* CustomLoading */,
+				B65F950A2ABF5A12002F9B1A /* CustomLabel */,
 				8359D34786E165D0CEA08B57C74E2BDC /* Pod */,
 				3FF4EE81263CD67588116A945A383F47 /* Support Files */,
-				E8022904DCA5825C8F39B36FB108C7A1 /* UIFontDefault */,
 			);
 			name = DSM;
 			path = "../../../Exemplo-DSM/Source";
@@ -1983,6 +1999,38 @@
 				C729B0332BAA6CCD1B14EFFF4E97C113 /* Support Files */,
 			);
 			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		B65F950A2ABF5A12002F9B1A /* CustomLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B65F950B2ABF5A2C002F9B1A /* CustomLabel.swift */,
+			);
+			path = CustomLabel;
+			sourceTree = "<group>";
+		};
+		B65F95112ABF6A8A002F9B1A /* CustomLoading */ = {
+			isa = PBXGroup;
+			children = (
+				B65F95122ABF6AA5002F9B1A /* CustomLoading.swift */,
+			);
+			path = CustomLoading;
+			sourceTree = "<group>";
+		};
+		B65F95152ABF719D002F9B1A /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				B65F950E2ABF60AD002F9B1A /* CustomTextField.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		B65F95162ABF71C0002F9B1A /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				B65F95172ABF71E4002F9B1A /* CustomButton.swift */,
+			);
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
 		B94D7768568A9992200DB461E8CF687F /* Frameworks */ = {
@@ -2906,7 +2954,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65F950F2ABF60AD002F9B1A /* CustomTextField.swift in Sources */,
 				042DFBA56135629591BD7B300D74CCF7 /* DSM-dummy.m in Sources */,
+				B65F95182ABF71E4002F9B1A /* CustomButton.swift in Sources */,
+				B65F950C2ABF5A2C002F9B1A /* CustomLabel.swift in Sources */,
+				B65F95132ABF6AA5002F9B1A /* CustomLoading.swift in Sources */,
 				E0545F18ADD7A5648C494067A857C6DE /* StringsContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2926,6 +2978,10 @@
 				25A42EB94B427438DF6D03B6D5046D97 /* Provider.swift in Sources */,
 				61D602313886F35F78BA4D4984F8034E /* SDKNET-dummy.m in Sources */,
 				4ADCDCB238998C8EA2F6EE0B722FB94A /* UserModel.swift in Sources */,
+				B65F95142ABF6AA5002F9B1A /* CustomLoading.swift in Sources */,
+				B65F95192ABF71E4002F9B1A /* CustomButton.swift in Sources */,
+				B65F950D2ABF5A2C002F9B1A /* CustomLabel.swift in Sources */,
+				B65F95102ABF60AD002F9B1A /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
