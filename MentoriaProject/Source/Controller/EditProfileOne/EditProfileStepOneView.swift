@@ -1,17 +1,17 @@
 //
-//  ProfileView.swift
+//  EditProfileStepOneView.swift
 //  MentoriaProject
 //
-//  Created by Rogerio Martins on 29/09/23.
+//  Created by Rogerio Martins on 06/10/23.
 //
 
 import Foundation
 import UIKit
 import DSM
 
-class ProfileView: UIView {
+class EditProfileStepOneView: UIView {
     
-    var onTapEditProfile: (()-> Void)?
+    var onTapContinues: (()-> Void)?
     
     let myScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -28,34 +28,24 @@ class ProfileView: UIView {
         return view
     }()
     
-    let labelTitle = CustomLabel(text: "Perfil", font: .systemFont(ofSize: 24, weight: .medium), textAlignment: .center, textColor: .white)
+    let labelName = CustomLabel(text: "Nome Completo", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
     
-    let backgroundImagePhoto: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .white
-        image.layer.cornerRadius = 54.5
-        image.clipsToBounds = true
-        return image
+    let textName: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: false
+        )
+        text.setLeftPaddingPoints(8)
+        let placeholderAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+        let attributedPlaceholder = NSAttributedString(string: "", attributes: placeholderAttributes)
+        text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        text.layer.cornerRadius = 8
+        return text
     }()
-    
-    let buttonImagePhoto: CustomButton = {
-        let button = CustomButton(title: "")
-        button.tintColor = .gray
-        return button
-    }()
-    
-    let imageIconPhoto: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "camera.viewfinder")
-        image.tintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
-        return image
-    }()
-    
-    let labelName = CustomLabel(text: "Marcelo", font: .systemFont(ofSize: 24, weight: .medium), textAlignment: .center, textColor: .white)
-    
-    let labelFuncDescription = CustomLabel(text: "Eletricista", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .center, textColor: .white)
     
     let labelCPF = CustomLabel(text: "CPF", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
     
@@ -69,7 +59,7 @@ class ProfileView: UIView {
         text.setLeftPaddingPoints(8)
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "000.000.00-00", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: "", attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 8
@@ -88,7 +78,7 @@ class ProfileView: UIView {
         text.setLeftPaddingPoints(8)
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "25/100/1999", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: "", attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 8
@@ -107,7 +97,7 @@ class ProfileView: UIView {
         text.setLeftPaddingPoints(8)
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "(11) 99999-9999", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: "", attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 8
@@ -126,42 +116,23 @@ class ProfileView: UIView {
         text.setLeftPaddingPoints(8)
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "Eletricista", attributes: placeholderAttributes)
+        let attributedPlaceholder = NSAttributedString(string: "", attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
         text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         text.layer.cornerRadius = 8
         return text
     }()
     
-    let labelAddress = CustomLabel(text: "Endereço", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
-    
-    let textAddress: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "Eletricista", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
-    }()
-    
-    let buttonEditProfile: CustomButton = {
+    let buttonContinues: CustomButton = {
         let button = CustomButton(
-            title: "Editar Perfil",
+            title: "Continuar",
             fontType: .semiBold(size: 25),
             titleColor: UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
             backgroundColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0),
             cornerRadius: 16,
             clipsToBounds: true
         )
-        button.addTarget(self, action: #selector(tapEditProfile), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapButtonContinues), for: .touchUpInside)
         return button
     }()
     
@@ -180,12 +151,8 @@ class ProfileView: UIView {
         addSubview(myScrollView)
         myScrollView.addSubview(contentView)
         contentView.addSubViews(
-            labelTitle,
-            backgroundImagePhoto,
-            buttonImagePhoto,
-            imageIconPhoto,
             labelName,
-            labelFuncDescription,
+            textName,
             labelCPF,
             textCPF,
             labeDateBirth,
@@ -194,9 +161,7 @@ class ProfileView: UIView {
             textTelephone,
             labelTypeOfActivity,
             textTypeOfActivity,
-            labelAddress,
-            textAddress,
-            buttonEditProfile
+            buttonContinues
         )
     }
     
@@ -212,42 +177,22 @@ class ProfileView: UIView {
             contentView.leadingAnchor.constraint(equalTo: myScrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: myScrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 1100),
+            contentView.heightAnchor.constraint(equalToConstant: 720),
             
-            labelTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 68),
-            labelTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            labelTitle.heightAnchor.constraint(equalToConstant: 44),
-            labelTitle.widthAnchor.constraint(equalToConstant: 71),
+            labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 86),
+            labelName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            labelName.heightAnchor.constraint(equalToConstant: 21),
+            labelName.widthAnchor.constraint(equalToConstant: 139),
             
-            backgroundImagePhoto.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 24),
-            backgroundImagePhoto.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            backgroundImagePhoto.widthAnchor.constraint(equalToConstant: 109),
-            backgroundImagePhoto.heightAnchor.constraint(equalToConstant: 109),
+            textName.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 8),
+            textName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            textName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            textName.heightAnchor.constraint(equalToConstant: 48),
             
-            buttonImagePhoto.centerXAnchor.constraint(equalTo: backgroundImagePhoto.centerXAnchor),
-            buttonImagePhoto.centerYAnchor.constraint(equalTo: backgroundImagePhoto.centerYAnchor),
-            buttonImagePhoto.widthAnchor.constraint(equalToConstant: 80),
-            buttonImagePhoto.heightAnchor.constraint(equalToConstant: 80),
-            
-            imageIconPhoto.centerXAnchor.constraint(equalTo: buttonImagePhoto.centerXAnchor),
-            imageIconPhoto.centerYAnchor.constraint(equalTo: buttonImagePhoto.centerYAnchor),
-            imageIconPhoto.widthAnchor.constraint(equalToConstant: 53),
-            imageIconPhoto.heightAnchor.constraint(equalToConstant: 53),
-            
-            labelName.topAnchor.constraint(equalTo: backgroundImagePhoto.bottomAnchor, constant: 8),
-            labelName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            labelName.heightAnchor.constraint(equalToConstant: 28),
-            labelName.widthAnchor.constraint(equalToConstant: 172),
-            
-            labelFuncDescription.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 4),
-            labelFuncDescription.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            labelFuncDescription.heightAnchor.constraint(equalToConstant: 21),
-            labelFuncDescription.widthAnchor.constraint(equalToConstant: 80),
-            
-            labelCPF.topAnchor.constraint(equalTo: labelFuncDescription.bottomAnchor, constant: 24),
+            labelCPF.topAnchor.constraint(equalTo: textName.bottomAnchor, constant: 24),
             labelCPF.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelCPF.heightAnchor.constraint(equalToConstant: 21),
-            labelCPF.widthAnchor.constraint(equalToConstant: 34),
+            labelCPF.widthAnchor.constraint(equalToConstant: 129),
             
             textCPF.topAnchor.constraint(equalTo: labelCPF.bottomAnchor, constant: 8),
             textCPF.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
@@ -284,30 +229,15 @@ class ProfileView: UIView {
             textTypeOfActivity.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             textTypeOfActivity.heightAnchor.constraint(equalToConstant: 48),
             
-            labelAddress.topAnchor.constraint(equalTo: textTypeOfActivity.bottomAnchor, constant: 24),
-            labelAddress.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            labelAddress.heightAnchor.constraint(equalToConstant: 21),
-            labelAddress.widthAnchor.constraint(equalToConstant: 161),
-            
-            textAddress.topAnchor.constraint(equalTo: labelAddress.bottomAnchor, constant: 8),
-            textAddress.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textAddress.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textAddress.heightAnchor.constraint(equalToConstant: 149),
-            
-            buttonEditProfile.topAnchor.constraint(equalTo: textAddress.bottomAnchor, constant: 92),
-            buttonEditProfile.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 43),
-            buttonEditProfile.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
-            buttonEditProfile.heightAnchor.constraint(equalToConstant: 48),
+            buttonContinues.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -92),
+            buttonContinues.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 43),
+            buttonContinues.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
+            buttonContinues.heightAnchor.constraint(equalToConstant: 48),
         ])
     }
     
     @objc
-    private func tapEditProfile() {
-        onTapEditProfile?()
+    private func tapButtonContinues() {
+        onTapContinues?()
     }
-    
-//    @objc
-//    private func tapButtonImage() {
-//        onTapButtonImage?()
-//    }
 }
