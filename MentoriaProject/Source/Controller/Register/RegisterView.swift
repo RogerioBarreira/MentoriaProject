@@ -15,43 +15,29 @@ class RegisterView: UIView {
     var onRegisterTap: ((_ email: String, _ password: String)-> Void)?
     var onError: ((_ title: String, _ message: String) -> Void)?
     
-    let loading: UIActivityIndicatorView = {
-        let load = UIActivityIndicatorView()
-        load.translatesAutoresizingMaskIntoConstraints = false
-        load.frame.size = CGSize(width: 50, height: 50)
-        let scale = CGAffineTransform(scaleX: 2, y: 2)
-        load.transform = scale
-        load.color = .black
-        load.backgroundColor = .lightGray
-        load.layer.cornerRadius = 10
-        load.layer.borderWidth = 1
-        load.layer.borderColor = UIColor.white.cgColor
-        return load
-    }()
+    let loading = CustomLoading(color: .black,
+                                backgroundColor: .lightGray,cornerRadius: 10,
+                                borderWidth: 1,
+                                borderColor: UIColor.white.cgColor,
+                                clipsToBounds: true)
     
-    let labelEmail: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.labelEmail.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let labelEmail = CustomLabel(text: DSM.Constants.Keys.labelEmail.value,
+                                 font: .systemFont(ofSize: 18),
+                                 textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
     
-    let textEmail: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
+    let textEmail: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: false
+        )
         text.setLeftPaddingPoints(8)
-        text.textColor = .black
-        text.font = .systemFont(ofSize: 18, weight: .regular)
-        text.autocapitalizationType = .none
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
-               .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
         let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textEmailPlaceholder.value, attributes: placeholderAttributes)
-           text.attributedPlaceholder = attributedPlaceholder
+        text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return text
     }()
     
@@ -64,30 +50,24 @@ class RegisterView: UIView {
         return image
     }()
     
-    let labelPassword: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.labelPassword.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let labelPassword = CustomLabel(text: DSM.Constants.Keys.labelPassword.value,
+                                    font: .systemFont(ofSize: 18),
+                                    textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
+
     
-    let textPassword: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
+    let textPassword: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: true
+        )
         text.setLeftPaddingPoints(8)
-        text.textColor = .black
-        text.font = .systemFont(ofSize: 18, weight: .regular)
-        text.autocapitalizationType = .none
-        text.isSecureTextEntry = true
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
-               .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
         let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textPasswordPlaceholder.value, attributes: placeholderAttributes)
-           text.attributedPlaceholder = attributedPlaceholder
+        text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return text
     }()
     
@@ -100,30 +80,23 @@ class RegisterView: UIView {
         return button
     }()
     
-    let labelConfirmePassword: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.labelConfirmePassword.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let labelConfirmePassword = CustomLabel(text: DSM.Constants.Keys.labelConfirmePassword.value,
+                                    font: .systemFont(ofSize: 18),
+                                    textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
     
-    let textConfirmePassword: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
+    let textConfirmePassword: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: true
+        )
         text.setLeftPaddingPoints(8)
-        text.textColor = .black
-        text.font = .systemFont(ofSize: 18, weight: .regular)
-        text.autocapitalizationType = .none
-        text.isSecureTextEntry = true
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
-               .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
+            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
         let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textConfirmePassword.value, attributes: placeholderAttributes)
-           text.attributedPlaceholder = attributedPlaceholder
+        text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return text
     }()
     
@@ -136,20 +109,16 @@ class RegisterView: UIView {
         return button
     }()
     
-    let buttonRegisterII: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(DSM.Constants.Keys.buttonRegisterII.value, for: .normal)
-        button.setTitleColor(
-            UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
-            for: .normal
+    let buttonRegisterII: CustomButton = {
+        let button = CustomButton(
+            title: DSM.Constants.Keys.buttonRegisterII.value,
+            fontType: .semiBold(size: 25),
+            titleColor: UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
+            backgroundColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0),
+            cornerRadius: 16, clipsToBounds: true
         )
-        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .semibold)
-        button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        button.layer.cornerRadius = 16
-        button.clipsToBounds = true
         button.addTarget(self, action: #selector(setupRegisterTap), for: .touchUpInside)
-        return button
+       return button
     }()
     
     override init(frame: CGRect) {

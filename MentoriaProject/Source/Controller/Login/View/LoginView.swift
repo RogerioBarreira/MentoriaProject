@@ -16,46 +16,36 @@ class LoginView: UIView {
     var onSecurityKey: (()-> Void)?
     var onError: ((_ title: String, _ message: String) -> Void)?
     var onSWTap: ((_ sender: Bool) -> Void)?
+    var onThouch: (()-> Void)?
     
-    let loading: UIActivityIndicatorView = {
-        let load = UIActivityIndicatorView()
-        load.translatesAutoresizingMaskIntoConstraints = false
-        load.frame.size = CGSize(width: 50, height: 50)
-        let scale = CGAffineTransform(scaleX: 2, y: 2)
-        load.transform = scale
-        load.color = .black
-        load.backgroundColor = .lightGray
-        load.layer.cornerRadius = 10
-        load.layer.borderWidth = 1
-        load.layer.borderColor = UIColor.white.cgColor
-        return load
-    }()
+    let viewModel = LoginViewModel()
     
-    let labelEmail: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.labelEmail.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let loading = CustomLoading(color: .black,
+                                backgroundColor: .lightGray,cornerRadius: 10,
+                                borderWidth: 1,
+                                borderColor: UIColor.white.cgColor,
+                                clipsToBounds: true)
     
-    let textEmail: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
+    let labelEmail = CustomLabel(text: DSM.Constants.Keys.labelEmail.value,
+                                 font: .systemFont(ofSize: 18),
+                                 textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
+    
+    let textEmail: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: false
+        )
         text.setLeftPaddingPoints(8)
-        text.textColor = .black
-        text.font = .systemFont(ofSize: 18, weight: .regular)
-        text.autocapitalizationType = .none
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
         let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textEmailPlaceholder.value, attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return text
     }()
+    
     
     let imageIconEmail: UIImageView = {
         let image = UIImageView()
@@ -66,30 +56,23 @@ class LoginView: UIView {
         return image
     }()
     
-    let labelPassword: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.labelPassword.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let labelPassword = CustomLabel(text: DSM.Constants.Keys.labelPassword.value,
+                                    font: .systemFont(ofSize: 18),
+                                    textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
     
-    let textPassword: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
+    let textPassword: CustomTextField = {
+        let text = CustomTextField(placeholder: "",
+                                   textColor: .black,
+                                   font: .systemFont(ofSize: 18, weight: .regular),
+                                   autocapitalizationType: .none,
+                                   isSecureTextEntry: true
+        )
         text.setLeftPaddingPoints(8)
-        text.textColor = .black
-        text.font = .systemFont(ofSize: 18, weight: .regular)
-        text.autocapitalizationType = .none
-        text.isSecureTextEntry = true
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        text.clipsToBounds = true
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
         let attributedPlaceholder = NSAttributedString(string: DSM.Constants.Keys.textPasswordPlaceholder.value, attributes: placeholderAttributes)
         text.attributedPlaceholder = attributedPlaceholder
+        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         return text
     }()
     
@@ -117,46 +100,57 @@ class LoginView: UIView {
         return sw
     }()
     
-    let swPasswordDescription: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = DSM.Constants.Keys.swPasswordDescription.value
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        return label
-    }()
+    let swPasswordDescription = CustomLabel(text: DSM.Constants.Keys.swPasswordDescription.value,
+                                            font: .systemFont(ofSize: 18),
+                                            textColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0))
     
-    let buttonEnter: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(DSM.Constants.Keys.buttonEnter.value, for: .normal)
-        button.setTitleColor(
-            UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
-            for: .normal
+    let buttonEnter: CustomButton = {
+        let button = CustomButton(
+            title: DSM.Constants.Keys.buttonEnter.value,
+            fontType: .semiBold(size: 25),
+            titleColor: UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
+            backgroundColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0),
+            cornerRadius: 16, clipsToBounds: true
         )
-        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .semibold)
-        button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        button.layer.cornerRadius = 16
-        button.clipsToBounds = true
         button.addTarget(self, action: #selector(onLoginTap), for: .touchUpInside)
         return button
     }()
     
-    let buttonRegister: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(DSM.Constants.Keys.buttonRegister.value, for: .normal)
-        button.setTitleColor(
-            UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
-            for: .normal
+    let buttonRegister: CustomButton = {
+        let button = CustomButton(
+            title: DSM.Constants.Keys.buttonRegister.value,
+            fontType: .semiBold(size: 25),
+            titleColor: UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
+            backgroundColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0),
+            cornerRadius: 16,
+            clipsToBounds: true
         )
-        button.titleLabel?.font = .systemFont(ofSize: 25, weight: .semibold)
-        button.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        button.layer.cornerRadius = 16
-        button.clipsToBounds = true
         button.addTarget(self, action: #selector(onRegisterTap), for: .touchUpInside)
         return button
     }()
+    
+    let buttonThouchId: CustomButton = {
+        let button = CustomButton(
+            title: "",
+            fontType: .semiBold(size: 25),
+            titleColor: UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0),
+            backgroundColor: UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0),
+            cornerRadius: 35,
+            clipsToBounds: true
+        )
+        button.addTarget(self, action: #selector(onThouchIdTap), for: .touchUpInside)
+        button.tintColor = .gray
+        return button
+    }()
+    
+    let imageIconTouchId: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "touchid")
+        image.tintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0)
@@ -181,8 +175,10 @@ class LoginView: UIView {
             swPasswordDescription,
             buttonEnter,
             buttonRegister,
+            buttonThouchId,
             loading
         )
+        buttonThouchId.addSubview(imageIconTouchId)
     }
     
     private func configConstraints() {
@@ -236,6 +232,17 @@ class LoginView: UIView {
             buttonRegister.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 43),
             buttonRegister.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
             buttonRegister.heightAnchor.constraint(equalToConstant: 48),
+            
+            buttonThouchId.topAnchor.constraint(equalTo: buttonRegister.bottomAnchor, constant: 16),
+            buttonThouchId.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            buttonThouchId.widthAnchor.constraint(equalToConstant: 70),
+            buttonThouchId.heightAnchor.constraint(equalToConstant: 70),
+            
+            
+            imageIconTouchId.centerXAnchor.constraint(equalTo: buttonThouchId.centerXAnchor),
+            imageIconTouchId.centerYAnchor.constraint(equalTo: buttonThouchId.centerYAnchor),
+            imageIconTouchId.heightAnchor.constraint(equalToConstant: 60),
+            imageIconTouchId.widthAnchor.constraint(equalToConstant: 60),
             
             loading.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loading.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -316,6 +323,12 @@ class LoginView: UIView {
             }
         }
     }
+    
+    @objc
+    private func onThouchIdTap() {
+        onThouch?()
+    }
+    
     
     @objc
     private func onRegisterTap() {
