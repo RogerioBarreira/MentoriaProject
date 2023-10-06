@@ -39,12 +39,17 @@ class ProfileView: UIView {
         return image
     }()
     
-    let imagePhoto: UIImageView = {
+    let buttonImagePhoto: CustomButton = {
+        let button = CustomButton(title: "")
+        button.tintColor = .gray
+        return button
+    }()
+    
+    let imageIconPhoto: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "camera.viewfinder")
-        image.tintColor = UIColor(red: 58/255, green: 62/255, blue: 63/255, alpha: 1.0)
-        image.contentMode = .scaleToFill
+        image.tintColor = UIColor(red: 58/255, green: 62/255, blue: 55/255, alpha: 1.0)
         return image
     }()
     
@@ -177,6 +182,8 @@ class ProfileView: UIView {
         contentView.addSubViews(
             labelTitle,
             backgroundImagePhoto,
+            buttonImagePhoto,
+            imageIconPhoto,
             labelName,
             labelFuncDescription,
             labelCPF,
@@ -191,7 +198,6 @@ class ProfileView: UIView {
             textAddress,
             buttonEditProfile
         )
-        backgroundImagePhoto.addSubview(imagePhoto)
     }
     
     private func configConstraints() {
@@ -218,10 +224,15 @@ class ProfileView: UIView {
             backgroundImagePhoto.widthAnchor.constraint(equalToConstant: 109),
             backgroundImagePhoto.heightAnchor.constraint(equalToConstant: 109),
             
-            imagePhoto.centerXAnchor.constraint(equalTo: backgroundImagePhoto.centerXAnchor),
-            imagePhoto.centerYAnchor.constraint(equalTo: backgroundImagePhoto.centerYAnchor),
-            imagePhoto.widthAnchor.constraint(equalToConstant: 53),
-            imagePhoto.heightAnchor.constraint(equalToConstant: 53),
+            buttonImagePhoto.centerXAnchor.constraint(equalTo: backgroundImagePhoto.centerXAnchor),
+            buttonImagePhoto.centerYAnchor.constraint(equalTo: backgroundImagePhoto.centerYAnchor),
+            buttonImagePhoto.widthAnchor.constraint(equalToConstant: 80),
+            buttonImagePhoto.heightAnchor.constraint(equalToConstant: 80),
+            
+            imageIconPhoto.centerXAnchor.constraint(equalTo: buttonImagePhoto.centerXAnchor),
+            imageIconPhoto.centerYAnchor.constraint(equalTo: buttonImagePhoto.centerYAnchor),
+            imageIconPhoto.widthAnchor.constraint(equalToConstant: 53),
+            imageIconPhoto.heightAnchor.constraint(equalToConstant: 53),
             
             labelName.topAnchor.constraint(equalTo: backgroundImagePhoto.bottomAnchor, constant: 8),
             labelName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -294,4 +305,9 @@ class ProfileView: UIView {
     private func tapEditProfile() {
         onTapEditProfile?()
     }
+    
+//    @objc
+//    private func tapButtonImage() {
+//        onTapButtonImage?()
+//    }
 }

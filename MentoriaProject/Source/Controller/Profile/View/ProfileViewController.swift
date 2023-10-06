@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 class ProfileViewController: UIViewController {
     
@@ -19,8 +20,12 @@ class ProfileViewController: UIViewController {
         return view
     }()
     
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        buttonImageTap()
     }
     
     override func loadView() {
@@ -51,5 +56,26 @@ class ProfileViewController: UIViewController {
     private func nextEditProfileStepOne() {
         let coordinator = Coordinator(navigationController: navigationController)
         coordinator.startEditProfileStepOne()
+    }
+    
+    private func buttonImageTap() {
+        viewProfile.buttonImagePhoto.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
+    }
+    
+    @objc
+    private func buttonTap() {
+       if self.imagePicker.sourceType == .photoLibrary {
+            self.viewProfile.imageIconPhoto.isHidden = true
+            self.present(self.imagePicker, animated: true)
+        }
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let imagemRecuperada: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.viewProfile.backgroundImagePhoto.image = imagemRecuperada
+        }
+        picker.dismiss(animated: true)
     }
 }

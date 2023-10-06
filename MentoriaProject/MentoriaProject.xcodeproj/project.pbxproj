@@ -666,7 +666,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "Ë necessário a utilização do FaceId par aesse App";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Por favor, autorize o acesso a  camera, para poder adcionar uma foto ao projeto! ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "É necessário a utilização do FaceID para este App";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Por favor, autorize adicionar imagem a galeria";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -696,7 +698,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentoriaProject/Info.plist;
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "Ë necessário a utilização do FaceId par aesse App";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Por favor, autorize o acesso a  camera, para poder adcionar uma foto ao projeto! ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "É necessário a utilização do FaceID para este App";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Por favor, autorize adicionar imagem a galeria";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
