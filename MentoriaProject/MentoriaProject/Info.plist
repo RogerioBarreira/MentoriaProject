@@ -19,7 +19,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSFaceIDUsageDescription</key>
-	<string>É necessário a utilização do FaceID para este App</string>
 </dict>
 </plist>
