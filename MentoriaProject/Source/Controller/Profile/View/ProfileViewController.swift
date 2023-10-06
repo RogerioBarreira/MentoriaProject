@@ -12,6 +12,10 @@ class ProfileViewController: UIViewController {
     
     lazy var viewProfile: ProfileView = {
         let view = ProfileView()
+        view.onTapEditProfile = { [weak self] in
+            guard let self = self else { return }
+            self.nextEditProfileStepOne()
+        }
         return view
     }()
     
@@ -42,5 +46,10 @@ class ProfileViewController: UIViewController {
                                   NSAttributedString.Key.foregroundColor: UIColor.black]
             navigationController.navigationBar.titleTextAttributes = textAttributes
         }
+    }
+    
+    private func nextEditProfileStepOne() {
+        let coordinator = Coordinator(navigationController: navigationController)
+        coordinator.startEditProfileStepOne()
     }
 }

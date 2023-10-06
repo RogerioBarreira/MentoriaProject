@@ -37,8 +37,12 @@
 		B68392A32AAD515B000F8F5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A22AAD515B000F8F5C /* Constants.swift */; };
 		B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A42AAD52EE000F8F5C /* UserManager.swift */; };
 		B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A62AAD546F000F8F5C /* UserBusiness.swift */; };
+		B68A7C8D2ACFBD7B00833452 /* EditProfileStepOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */; };
+		B68A7C8F2ACFBDDD00833452 /* EditProfileStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */; };
 		B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */; };
 		B6AD3B112ACBE1BA00DC8D0F /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */; };
+		B6AD52FD2AD05DA7004A81F1 /* EditProfileStepTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD52FC2AD05DA7004A81F1 /* EditProfileStepTwoView.swift */; };
+		B6AD52FF2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD52FE2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +80,12 @@
 		B68392A22AAD515B000F8F5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B68392A42AAD52EE000F8F5C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B68392A62AAD546F000F8F5C /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
+		B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepOneView.swift; sourceTree = "<group>"; };
+		B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepOneViewController.swift; sourceTree = "<group>"; };
 		B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B6AD52FC2AD05DA7004A81F1 /* EditProfileStepTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepTwoView.swift; sourceTree = "<group>"; };
+		B6AD52FE2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepTwoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,8 @@
 		B60A99C12AA676B2007983E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD52FB2AD05D5C004A81F1 /* EditProfileTwo */,
+				B68A7C8B2ACFBD4000833452 /* EditProfileOne */,
 				B6AD3B0D2ACBE15400DC8D0F /* Schedule */,
 				B64E0F052AC772A800CB8F30 /* Settings */,
 				B64E0F022AC7715B00CB8F30 /* TabBar */,
@@ -333,6 +343,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		B68A7C8B2ACFBD4000833452 /* EditProfileOne */ = {
+			isa = PBXGroup;
+			children = (
+				B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */,
+				B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */,
+			);
+			path = EditProfileOne;
+			sourceTree = "<group>";
+		};
 		B6AD3B0D2ACBE15400DC8D0F /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +359,15 @@
 				B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		B6AD52FB2AD05D5C004A81F1 /* EditProfileTwo */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD52FC2AD05DA7004A81F1 /* EditProfileStepTwoView.swift */,
+				B6AD52FE2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift */,
+			);
+			path = EditProfileTwo;
 			sourceTree = "<group>";
 		};
 		C3185EA626BE632095156187 /* Frameworks */ = {
@@ -466,6 +494,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */,
+				B6AD52FF2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift in Sources */,
+				B68A7C8F2ACFBDDD00833452 /* EditProfileStepOneViewController.swift in Sources */,
 				B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */,
 				B64E0F0B2AC77E7400CB8F30 /* ProfileView.swift in Sources */,
 				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
@@ -478,6 +508,7 @@
 				B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */,
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
 				B6810AD12AAD80EC004ED703 /* Coordinator.swift in Sources */,
+				B6AD52FD2AD05DA7004A81F1 /* EditProfileStepTwoView.swift in Sources */,
 				B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */,
 				B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
@@ -492,6 +523,7 @@
 				B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */,
 				B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */,
 				B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */,
+				B68A7C8D2ACFBD7B00833452 /* EditProfileStepOneView.swift in Sources */,
 				B67BDDE22AAFA16300F77A1E /* ThemeComponentList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

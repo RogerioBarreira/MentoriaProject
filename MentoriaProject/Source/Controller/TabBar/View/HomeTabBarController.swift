@@ -16,6 +16,34 @@ class HomeTabBarController: UITabBarController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+        setupNavigationItem()
+    }
+    
+    func setupNavigationItem() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "",
+            style: .done,
+            target: nil,
+            action: nil
+        )
+        
+        if let viewControllers = navigationController?.viewControllers, viewControllers.count > 1 {
+            var newViewControllers = viewControllers
+            newViewControllers.remove(at: viewControllers.count - 2)
+            navigationController?.viewControllers = newViewControllers
+        }
+        
+        if let navigationController = self.navigationController {
+            navigationController.navigationBar.tintColor = UIColor.white
+            let textAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24),
+                                  NSAttributedString.Key.foregroundColor: UIColor.white]
+            navigationController.navigationBar.titleTextAttributes = textAttributes
+        }
+    }
+    
     func customizeTabBar() {
         UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
         UITabBar.appearance().tintColor = UIColor.white
@@ -28,27 +56,20 @@ class HomeTabBarController: UITabBarController {
     
     private func setupUI() {
         
-        let vcProfile = ProfileViewController()
-        let vcSettings = SettingsViewController()
-        let vcSchedule = ScheduleViewController()
+        let nav = Coordinator(navigationController: navigationController)
         
-        let nav1 = UINavigationController(rootViewController: vcProfile)
-        let nav2 = UINavigationController(rootViewController: vcSettings)
-        let nav3 = UINavigationController(rootViewController: vcSchedule)
-        
-        
-        nav1.tabBarItem = UITabBarItem(title: "Perfil", 
+        nav.vcProfile.tabBarItem = UITabBarItem(title: "Perfil",
                                        image: UIImage(systemName: "person"),
                                        tag: 1)
         
-        nav2.tabBarItem = UITabBarItem(title: "Servico", 
+        nav.vcSettings.tabBarItem = UITabBarItem(title: "Servico",
                                        image: UIImage(systemName: "wrench.and.screwdriver"),
                                        tag: 2)
         
-        nav3.tabBarItem = UITabBarItem(title: "Agenda", 
+        nav.vcSchedule.tabBarItem = UITabBarItem(title: "Agenda",
                                        image: UIImage(systemName: "calendar"),
                                        tag: 3)
         
-        setViewControllers([nav1, nav2, nav3], animated: true)
+        setViewControllers([nav.vcProfile, nav.vcSettings, nav.vcSchedule], animated: true)
     }
 }
