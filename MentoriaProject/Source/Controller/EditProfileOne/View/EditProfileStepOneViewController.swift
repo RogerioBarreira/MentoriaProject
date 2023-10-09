@@ -16,8 +16,14 @@ class EditProfileStepOneViewController: UIViewController {
             guard let self = self else { return }
             self.editProfileTap()
         }
+        view.onError = { [weak self] title, error in
+            guard let self = self else { return }
+            self.showMessageError(title: title, message: error)
+        }
         return view
     }()
+    
+    //let viewModel = EdifProfileStepOneViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +52,19 @@ class EditProfileStepOneViewController: UIViewController {
     }
     
     private func editProfileTap() {
+        let name = viewEditProfileStepOne.textName.text ?? ""
+        let phone = viewEditProfileStepOne.textTelephone.text ?? ""
+        let cpf = viewEditProfileStepOne.textCPF.text ?? ""
+        let typeOfActivity = viewEditProfileStepOne.textTypeOfActivity.text ?? ""
+        let birthdate = viewEditProfileStepOne.textDateBirth.text ?? ""
         let coodinator = Coordinator(navigationController: navigationController)
-        coodinator.startEditProfileStepTwo()
+        coodinator.startEditProfileStepTwo(name: name, phone: phone, cpf: cpf, typeOfActivity: typeOfActivity, birthdate: birthdate)
+    }
+    
+    func showMessageError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let buttonAction = UIAlertAction(title: "Ok", style: .destructive)
+        alert.addAction(buttonAction)
+        self.present(alert, animated: true)
     }
 }

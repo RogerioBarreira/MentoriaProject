@@ -47,8 +47,13 @@ class Coordinator {
         self.navigationController.pushViewController(vc, animated: true)
     }
     
-    func startEditProfileStepTwo() {
+    func startEditProfileStepTwo(name: String, phone: String, cpf: String, typeOfActivity: String, birthdate: String) {
         let vc = EditProfileStepTwoViewController()
+        vc.name = name
+        vc.phone = phone
+        vc.cpf = cpf
+        vc.typeOfActivity = typeOfActivity
+        vc.birthdate = birthdate
         self.navigationController.pushViewController(vc, animated: true)
     }
     

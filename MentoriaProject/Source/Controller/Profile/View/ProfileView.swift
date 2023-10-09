@@ -12,6 +12,7 @@ import DSM
 class ProfileView: UIView {
     
     var onTapEditProfile: (()-> Void)?
+    var onTapButtonPerfil: (()-> Void)?
     
     let myScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -42,6 +43,7 @@ class ProfileView: UIView {
     let buttonImagePhoto: CustomButton = {
         let button = CustomButton(title: "")
         button.tintColor = .gray
+        button.addTarget(self, action: #selector(tapButtonImage), for: .touchUpInside)
         return button
     }()
     
@@ -53,105 +55,70 @@ class ProfileView: UIView {
         return image
     }()
     
-    let labelName = CustomLabel(text: "Marcelo", font: .systemFont(ofSize: 24, weight: .medium), textAlignment: .center, textColor: .white)
+    let labelName = CustomLabel(text: "", font: .systemFont(ofSize: 24, weight: .medium), textAlignment: .center, textColor: .white)
     
-    let labelFuncDescription = CustomLabel(text: "Eletricista", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .center, textColor: .white)
+    let labelFuncDescription = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .center, textColor: .white)
     
     let labelCPF = CustomLabel(text: "CPF", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
     
-    let textCPF: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "000.000.00-00", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
+    let viewCpf: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
     }()
+    
+    let labelCPFDescription = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
     
     let labeDateBirth = CustomLabel(text: "Data de nascimento", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
     
-    let textDateBirth: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "25/100/1999", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
+    let viewDateBirth: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
     }()
     
-    let labelTelephone = CustomLabel(text: "Telefone", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
+    let labelDateBirthDescription = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
     
-    let textTelephone: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "(11) 99999-9999", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
+    let labelPhone = CustomLabel(text: "Telefone", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
+    
+    let viewPhone: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
     }()
     
-    let labelTypeOfActivity = CustomLabel(text: "Ramo de Atuação", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
-    
-    let textTypeOfActivity: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "Eletricista", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
-    }()
-    
+    let labelPhoneDescription = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+  
     let labelAddress = CustomLabel(text: "Endereço", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
     
-    let textAddress: CustomTextField = {
-        let text = CustomTextField(placeholder: "",
-                                   textColor: .black,
-                                   font: .systemFont(ofSize: 18, weight: .regular),
-                                   autocapitalizationType: .none,
-                                   isSecureTextEntry: false
-        )
-        text.setLeftPaddingPoints(8)
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)]
-        let attributedPlaceholder = NSAttributedString(string: "Eletricista", attributes: placeholderAttributes)
-        text.attributedPlaceholder = attributedPlaceholder
-        text.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        text.layer.cornerRadius = 8
-        return text
+    let viewAddress: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
     }()
     
+    let labelAddressDescription = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+    
+    let labelAddressNumber = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+    
+    let labelAddressDistrict = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+    
+    let labelAddressZipCode = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+    
+    let labelAddressCity = CustomLabel(text: "", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0))
+  
     let buttonEditProfile: CustomButton = {
         let button = CustomButton(
             title: "Editar Perfil",
@@ -187,15 +154,21 @@ class ProfileView: UIView {
             labelName,
             labelFuncDescription,
             labelCPF,
-            textCPF,
+            viewCpf,
+            labelCPFDescription,
             labeDateBirth,
-            textDateBirth,
-            labelTelephone,
-            textTelephone,
-            labelTypeOfActivity,
-            textTypeOfActivity,
+            viewDateBirth,
+            labelDateBirthDescription,
+            labelPhone,
+            viewPhone,
+            labelPhoneDescription,
             labelAddress,
-            textAddress,
+            viewAddress,
+            labelAddressDescription,
+            labelAddressNumber,
+            labelAddressDistrict,
+            labelAddressZipCode,
+            labelAddressCity,
             buttonEditProfile
         )
     }
@@ -212,7 +185,7 @@ class ProfileView: UIView {
             contentView.leadingAnchor.constraint(equalTo: myScrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: myScrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 1100),
+            contentView.heightAnchor.constraint(equalToConstant: 1045),
             
             labelTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 68),
             labelTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -236,65 +209,97 @@ class ProfileView: UIView {
             
             labelName.topAnchor.constraint(equalTo: backgroundImagePhoto.bottomAnchor, constant: 8),
             labelName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            labelName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            labelName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             labelName.heightAnchor.constraint(equalToConstant: 28),
-            labelName.widthAnchor.constraint(equalToConstant: 172),
             
             labelFuncDescription.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 4),
             labelFuncDescription.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            labelFuncDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            labelFuncDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             labelFuncDescription.heightAnchor.constraint(equalToConstant: 21),
-            labelFuncDescription.widthAnchor.constraint(equalToConstant: 80),
             
             labelCPF.topAnchor.constraint(equalTo: labelFuncDescription.bottomAnchor, constant: 24),
             labelCPF.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelCPF.heightAnchor.constraint(equalToConstant: 21),
             labelCPF.widthAnchor.constraint(equalToConstant: 34),
             
-            textCPF.topAnchor.constraint(equalTo: labelCPF.bottomAnchor, constant: 8),
-            textCPF.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textCPF.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textCPF.heightAnchor.constraint(equalToConstant: 48),
+            viewCpf.topAnchor.constraint(equalTo: labelCPF.bottomAnchor, constant: 8),
+            viewCpf.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            viewCpf.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            viewCpf.heightAnchor.constraint(equalToConstant: 48),
             
-            labeDateBirth.topAnchor.constraint(equalTo: textCPF.bottomAnchor, constant: 24),
+            labelCPFDescription.centerYAnchor.constraint(equalTo: viewCpf.centerYAnchor),
+            labelCPFDescription.leadingAnchor.constraint(equalTo: viewCpf.leadingAnchor, constant: 8),
+            labelCPFDescription.trailingAnchor.constraint(equalTo: viewCpf.trailingAnchor, constant: -8),
+            labelCPFDescription.heightAnchor.constraint(equalToConstant: 21),
+            
+            labeDateBirth.topAnchor.constraint(equalTo: viewCpf.bottomAnchor, constant: 24),
             labeDateBirth.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labeDateBirth.heightAnchor.constraint(equalToConstant: 21),
             labeDateBirth.widthAnchor.constraint(equalToConstant: 161),
             
-            textDateBirth.topAnchor.constraint(equalTo: labeDateBirth.bottomAnchor, constant: 8),
-            textDateBirth.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textDateBirth.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textDateBirth.heightAnchor.constraint(equalToConstant: 48),
+            viewDateBirth.topAnchor.constraint(equalTo: labeDateBirth.bottomAnchor, constant: 8),
+            viewDateBirth.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            viewDateBirth.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            viewDateBirth.heightAnchor.constraint(equalToConstant: 48),
             
-            labelTelephone.topAnchor.constraint(equalTo: textDateBirth.bottomAnchor, constant: 24),
-            labelTelephone.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            labelTelephone.heightAnchor.constraint(equalToConstant: 21),
-            labelTelephone.widthAnchor.constraint(equalToConstant: 161),
+            labelDateBirthDescription.centerYAnchor.constraint(equalTo: viewDateBirth.centerYAnchor),
+            labelDateBirthDescription.leadingAnchor.constraint(equalTo: viewDateBirth.leadingAnchor, constant: 8),
+            labelDateBirthDescription.trailingAnchor.constraint(equalTo: viewDateBirth.trailingAnchor, constant: -8),
+            labelDateBirthDescription.heightAnchor.constraint(equalToConstant: 21),
             
-            textTelephone.topAnchor.constraint(equalTo: labelTelephone.bottomAnchor, constant: 8),
-            textTelephone.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textTelephone.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textTelephone.heightAnchor.constraint(equalToConstant: 48),
+            labelPhone.topAnchor.constraint(equalTo: viewDateBirth.bottomAnchor, constant: 24),
+            labelPhone.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            labelPhone.heightAnchor.constraint(equalToConstant: 21),
+            labelPhone.widthAnchor.constraint(equalToConstant: 161),
             
-            labelTypeOfActivity.topAnchor.constraint(equalTo: textTelephone.bottomAnchor, constant: 24),
-            labelTypeOfActivity.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            labelTypeOfActivity.heightAnchor.constraint(equalToConstant: 21),
-            labelTypeOfActivity.widthAnchor.constraint(equalToConstant: 161),
+            viewPhone.topAnchor.constraint(equalTo: labelPhone.bottomAnchor, constant: 8),
+            viewPhone.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            viewPhone.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            viewPhone.heightAnchor.constraint(equalToConstant: 48),
             
-            textTypeOfActivity.topAnchor.constraint(equalTo: labelTypeOfActivity.bottomAnchor, constant: 8),
-            textTypeOfActivity.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textTypeOfActivity.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textTypeOfActivity.heightAnchor.constraint(equalToConstant: 48),
+            labelPhoneDescription.centerYAnchor.constraint(equalTo: viewPhone.centerYAnchor),
+            labelPhoneDescription.leadingAnchor.constraint(equalTo: viewPhone.leadingAnchor, constant: 8),
+            labelPhoneDescription.trailingAnchor.constraint(equalTo: viewPhone.trailingAnchor, constant: -8),
+            labelPhoneDescription.heightAnchor.constraint(equalToConstant: 21),
             
-            labelAddress.topAnchor.constraint(equalTo: textTypeOfActivity.bottomAnchor, constant: 24),
+            labelAddress.topAnchor.constraint(equalTo: viewPhone.bottomAnchor, constant: 24),
             labelAddress.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelAddress.heightAnchor.constraint(equalToConstant: 21),
             labelAddress.widthAnchor.constraint(equalToConstant: 161),
             
-            textAddress.topAnchor.constraint(equalTo: labelAddress.bottomAnchor, constant: 8),
-            textAddress.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            textAddress.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            textAddress.heightAnchor.constraint(equalToConstant: 149),
+            viewAddress.topAnchor.constraint(equalTo: labelAddress.bottomAnchor, constant: 8),
+            viewAddress.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            viewAddress.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            viewAddress.heightAnchor.constraint(equalToConstant: 149),
             
-            buttonEditProfile.topAnchor.constraint(equalTo: textAddress.bottomAnchor, constant: 92),
+            labelAddressDescription.topAnchor.constraint(equalTo: viewAddress.topAnchor, constant: 15),
+            labelAddressDescription.leadingAnchor.constraint(equalTo: viewAddress.leadingAnchor, constant: 8),
+            labelAddressDescription.widthAnchor.constraint(equalToConstant: 250),
+            labelAddressDescription.heightAnchor.constraint(equalToConstant: 21),
+            
+            labelAddressNumber.centerYAnchor.constraint(equalTo: labelAddressDescription.centerYAnchor),
+            labelAddressNumber.leadingAnchor.constraint(equalTo: labelAddressDescription.trailingAnchor, constant: 10),
+            labelAddressNumber.trailingAnchor.constraint(equalTo: viewAddress.trailingAnchor, constant: -8),
+            labelAddressNumber.heightAnchor.constraint(equalToConstant: 21),
+            
+            labelAddressDistrict.topAnchor.constraint(equalTo: labelAddressDescription.bottomAnchor, constant: 10),
+            labelAddressDistrict.leadingAnchor.constraint(equalTo: viewAddress.leadingAnchor, constant: 8),
+            labelAddressDistrict.trailingAnchor.constraint(equalTo: viewAddress.trailingAnchor, constant: -8),
+            labelAddressDistrict.heightAnchor.constraint(equalToConstant: 21),
+            
+            labelAddressZipCode.topAnchor.constraint(equalTo: labelAddressDistrict.bottomAnchor, constant: 10),
+            labelAddressZipCode.leadingAnchor.constraint(equalTo: viewAddress.leadingAnchor, constant: 8),
+            labelAddressZipCode.trailingAnchor.constraint(equalTo: viewAddress.trailingAnchor, constant: -8),
+            labelAddressZipCode.heightAnchor.constraint(equalToConstant: 21),
+            
+            labelAddressCity.topAnchor.constraint(equalTo: labelAddressZipCode.bottomAnchor, constant: 10),
+            labelAddressCity.leadingAnchor.constraint(equalTo: viewAddress.leadingAnchor, constant: 8),
+            labelAddressCity.trailingAnchor.constraint(equalTo: viewAddress.trailingAnchor, constant: -8),
+            labelAddressCity.heightAnchor.constraint(equalToConstant: 21),
+            
+            buttonEditProfile.topAnchor.constraint(equalTo: viewAddress.bottomAnchor, constant: 92),
             buttonEditProfile.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 43),
             buttonEditProfile.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
             buttonEditProfile.heightAnchor.constraint(equalToConstant: 48),
@@ -306,8 +311,8 @@ class ProfileView: UIView {
         onTapEditProfile?()
     }
     
-//    @objc
-//    private func tapButtonImage() {
-//        onTapButtonImage?()
-//    }
+    @objc
+    private func tapButtonImage() {
+        onTapButtonPerfil?()
+    }
 }
