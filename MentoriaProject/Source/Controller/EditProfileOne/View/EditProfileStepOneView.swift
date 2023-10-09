@@ -12,6 +12,7 @@ import DSM
 class EditProfileStepOneView: UIView {
     
     var onTapContinues: (()-> Void)?
+    var onError: ((_ title: String, _ message: String) -> Void)?
     
     let myScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -179,7 +180,7 @@ class EditProfileStepOneView: UIView {
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 720),
             
-            labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 86),
+            labelName.topAnchor.constraint(equalTo: self.topAnchor, constant: 106),
             labelName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelName.heightAnchor.constraint(equalToConstant: 21),
             labelName.widthAnchor.constraint(equalToConstant: 139),
@@ -229,7 +230,7 @@ class EditProfileStepOneView: UIView {
             textTypeOfActivity.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             textTypeOfActivity.heightAnchor.constraint(equalToConstant: 48),
             
-            buttonContinues.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -92),
+            buttonContinues.topAnchor.constraint(equalTo: textTypeOfActivity.bottomAnchor, constant: 90),
             buttonContinues.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 43),
             buttonContinues.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
             buttonContinues.heightAnchor.constraint(equalToConstant: 48),
@@ -238,6 +239,37 @@ class EditProfileStepOneView: UIView {
     
     @objc
     private func tapButtonContinues() {
-        onTapContinues?()
+        var errorMessages: [String] = []
+        if let name = textName.text {
+            if name.isEmpty {
+                errorMessages.append("Campo Nome Obrigatorio")
+            }
+            if let cpf = textCPF.text {
+                if name.isEmpty {
+                    errorMessages.append("Campo CPF Obrigatorio")
+                }
+            }
+            if let dateBirth = textDateBirth.text {
+                if dateBirth.isEmpty {
+                    errorMessages.append("Campo Data de Nascimento Obrigatorio")
+                }
+            }
+            if let phone = textTelephone.text {
+                if phone.isEmpty {
+                    errorMessages.append("Campo Telefone Obrigatorio")
+                }
+            }
+            if let activity = textTypeOfActivity.text {
+                if activity.isEmpty {
+                    errorMessages.append("Campo Ramo de Atuacao Obrigatorio")
+                }
+            }
+            if errorMessages.isEmpty {
+                onTapContinues?()
+            } else {
+                let errorMessage = errorMessages.joined(separator: "\n")
+                self.onError?("Error", errorMessage)
+            }
+        }
     }
 }

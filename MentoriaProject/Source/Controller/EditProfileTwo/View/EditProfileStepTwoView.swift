@@ -12,6 +12,8 @@ import DSM
 class EditProfileStepTwoView: UIView {
     
     var onTapButtonConfirm: (()-> Void)?
+    var onTapButtonSearch: (()-> Void)?
+    var onError: ((_ title: String, _ message: String) -> Void)?
     
     let myScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -26,6 +28,14 @@ class EditProfileStepTwoView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         return view
+    }()
+    
+    let buttonSearchCep: CustomButton = {
+        let button = CustomButton(title: "")
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.tintColor = UIColor(red: 81/255, green: 87/255, blue: 89/255, alpha: 1.0)
+        button.addTarget(self, action: #selector(tapButtonSearch), for: .touchUpInside)
+        return button
     }()
     
     let labelCep = CustomLabel(text: "CEP", font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .left, textColor: .white)
@@ -151,7 +161,6 @@ class EditProfileStepTwoView: UIView {
             cornerRadius: 16,
             clipsToBounds: true
         )
-        button.addTarget(self, action: #selector(tapButtonConfirm), for: .touchUpInside)
         return button
     }()
     
@@ -172,6 +181,7 @@ class EditProfileStepTwoView: UIView {
         contentView.addSubViews(
             labelCep,
             textCep,
+            buttonSearchCep,
             labelRoad,
             textRoad,
             labelNumber,
@@ -198,9 +208,9 @@ class EditProfileStepTwoView: UIView {
             contentView.leadingAnchor.constraint(equalTo: myScrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: myScrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 720),
+            contentView.heightAnchor.constraint(equalToConstant: 850),
             
-            labelCep.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 86),
+            labelCep.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 106),
             labelCep.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelCep.heightAnchor.constraint(equalToConstant: 21),
             labelCep.widthAnchor.constraint(equalToConstant: 139),
@@ -209,6 +219,11 @@ class EditProfileStepTwoView: UIView {
             textCep.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             textCep.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             textCep.heightAnchor.constraint(equalToConstant: 48),
+            
+            buttonSearchCep.centerYAnchor.constraint(equalTo: textCep.centerYAnchor),
+            buttonSearchCep.trailingAnchor.constraint(equalTo: textCep.trailingAnchor, constant: -8),
+            buttonSearchCep.widthAnchor.constraint(equalToConstant: 30),
+            buttonSearchCep.heightAnchor.constraint(equalToConstant: 30),
             
             labelRoad.topAnchor.constraint(equalTo: textCep.bottomAnchor, constant: 24),
             labelRoad.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
@@ -250,7 +265,7 @@ class EditProfileStepTwoView: UIView {
             textCity.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             textCity.heightAnchor.constraint(equalToConstant: 48),
             
-            labelState.topAnchor.constraint(equalTo: textNeighborhood.bottomAnchor, constant: 24),
+            labelState.topAnchor.constraint(equalTo: textCity.bottomAnchor, constant: 24),
             labelState.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             labelState.heightAnchor.constraint(equalToConstant: 21),
             labelState.widthAnchor.constraint(equalToConstant: 161),
@@ -261,14 +276,30 @@ class EditProfileStepTwoView: UIView {
             textState.heightAnchor.constraint(equalToConstant: 48),
             
             buttonConfirm.topAnchor.constraint(equalTo: textState.bottomAnchor, constant: 92),
-            buttonConfirm.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 43),
-            buttonConfirm.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -43),
+            buttonConfirm.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 43),
+            buttonConfirm.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -43),
             buttonConfirm.heightAnchor.constraint(equalToConstant: 48),
         ])
     }
     
+    func setupTextField(delegate: UITextFieldDelegate) {
+        self.textCep.delegate = delegate
+    }
+    
     @objc
-    private func tapButtonConfirm() {
-        onTapButtonConfirm?()
+    private func tapButtonSearch() {
+        
+        var errorMessages: [String] = []
+        if let cep = textCep.text {
+            if cep.isEmpty {
+                errorMessages.append("Digite o CEP")
+            }
+            if errorMessages.isEmpty {
+                onTapButtonSearch?()
+            } else {
+                let errorMessage = errorMessages.joined(separator: "\n")
+                self.onError?("Erro", errorMessage)
+            }
+        }
     }
 }

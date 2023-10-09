@@ -17,5 +17,6 @@ public struct ApiService {
         case themeById = "Api/Theme/GetThemeById?"
         case themeComponentList = "Api/ThemeComponent/GetListaThemeComponent?"
         case themeComponentById = "Api/ThemeComponent/GetThemeComponentById?"
+        case getProfileId = "Api/Profile/GetProfileById?"
     }
 }
