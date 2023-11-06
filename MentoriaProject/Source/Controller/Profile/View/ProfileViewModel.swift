@@ -11,7 +11,17 @@ class ProfileViewModel {
     
     private let worker = Worker()
     var myProfile: ProfileID?
-    var id = 4
+    var id = 3
+    
+    var idFirebase: String?
+    
+    var idFire: String {
+        return idFirebase ?? ""
+    }
+    
+    var uid: String {
+        myProfile?.result?.uid ?? ""
+    }
     
     var myName: String {
         get { myProfile?.result?.name ?? "" }
@@ -108,6 +118,10 @@ class ProfileViewModel {
         set { myProfile?.result?.isChanged = newValue }
     }
     
+    func getIdProfile(uidFirebae: String?) {
+        self.idFirebase = uidFirebae
+    }
+    
     func saveProfileLocally() {
         let profileData: [String: Any] = [
             "name": myName,
@@ -133,7 +147,7 @@ class ProfileViewModel {
     }
     
     func loadProfileLocally() {
-        guard let profileData = UserDefaults.standard.dictionary(forKey: "userProfile") as? [String: Any] else {
+        guard let profileData = UserDefaults.standard.dictionary(forKey: "userProfile") else {
             return
         }
         

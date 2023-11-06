@@ -12,7 +12,7 @@ class Coordinator {
     
     var navigationController: UINavigationController
     let vcProfile = ProfileViewController()
-    let vcSettings = SettingsViewController()
+    let vcService = ServiceListViewController()
     let vcSchedule = ScheduleViewController()
     
     init(navigationController: UINavigationController?) {
@@ -20,6 +20,12 @@ class Coordinator {
             self.navigationController = UINavigationController()
         }
         self.navigationController = navigationController ?? UINavigationController()
+    }
+    
+    func startServiceResgister(selectIndex: IndexPath?) {
+        let vc = ServiceRegisterViewController()
+        vc.selectedRowIndex = selectIndex
+        self.navigationController.pushViewController(vc, animated: true)
     }
     
     func start() {
@@ -49,11 +55,7 @@ class Coordinator {
     
     func startEditProfileStepTwo(name: String, phone: String, cpf: String, typeOfActivity: String, birthdate: String) {
         let vc = EditProfileStepTwoViewController()
-        vc.name = name
-        vc.phone = phone
-        vc.cpf = cpf
-        vc.typeOfActivity = typeOfActivity
-        vc.birthdate = birthdate
+        vc.viewModel.getValuesPerfiOne(name: name, phone: phone, cpf: cpf, typeOfActivity: typeOfActivity, birthdate: birthdate)
         self.navigationController.pushViewController(vc, animated: true)
     }
     

@@ -117,8 +117,8 @@ class LoginViewController: UIViewController {
         var error: NSError?
         let reason = "Informe sua autenticação"
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
-                
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
+                guard let self = self else { return }
                 if success {
                     DispatchQueue.main.async {
                         self.nextHome()

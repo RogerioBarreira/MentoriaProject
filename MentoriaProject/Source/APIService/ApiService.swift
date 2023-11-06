@@ -18,5 +18,8 @@ public struct ApiService {
         case themeComponentList = "Api/ThemeComponent/GetListaThemeComponent?"
         case themeComponentById = "Api/ThemeComponent/GetThemeComponentById?"
         case getProfileId = "Api/Profile/GetProfileById?"
+        case getServiceList = "Api/Service/GetListaService?"
+        case postService = "Api/Service/PostService"
+        case deleteService = "Api/Service/InativarService?"
     }
 }
