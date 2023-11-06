@@ -10,6 +10,8 @@ import UIKit
 
 class HomeTabBarController: UITabBarController {
     
+    let viewModel = HomeTabbarViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeTabBar()
@@ -62,7 +64,7 @@ class HomeTabBarController: UITabBarController {
                                        image: UIImage(systemName: "person"),
                                        tag: 1)
         
-        nav.vcSettings.tabBarItem = UITabBarItem(title: "Servico",
+        nav.vcService.tabBarItem = UITabBarItem(title: "Servico",
                                        image: UIImage(systemName: "wrench.and.screwdriver"),
                                        tag: 2)
         
@@ -70,6 +72,6 @@ class HomeTabBarController: UITabBarController {
                                        image: UIImage(systemName: "calendar"),
                                        tag: 3)
         
-        setViewControllers([nav.vcProfile, nav.vcSettings, nav.vcSchedule], animated: true)
+        setViewControllers([nav.vcProfile, nav.vcService, nav.vcSchedule], animated: true)
     }
 }

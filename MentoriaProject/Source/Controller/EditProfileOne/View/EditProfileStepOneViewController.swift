@@ -23,7 +23,7 @@ class EditProfileStepOneViewController: UIViewController {
         return view
     }()
     
-    //let viewModel = EdifProfileStepOneViewModel()
+    let viewModel = EditProfileStepOneViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,12 @@ class EditProfileStepOneViewController: UIViewController {
         let cpf = viewEditProfileStepOne.textCPF.text ?? ""
         let typeOfActivity = viewEditProfileStepOne.textTypeOfActivity.text ?? ""
         let birthdate = viewEditProfileStepOne.textDateBirth.text ?? ""
+        
+        if !viewModel.validateCPF(cpf) {
+            showMessageError(title: "Error", message: "CPF inválido")
+            return
+        }
+        
         let coodinator = Coordinator(navigationController: navigationController)
         coodinator.startEditProfileStepTwo(name: name, phone: phone, cpf: cpf, typeOfActivity: typeOfActivity, birthdate: birthdate)
     }

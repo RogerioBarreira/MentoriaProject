@@ -20,14 +20,22 @@
 		B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CD2AA6942A007983E0 /* RegisterView.swift */; };
 		B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99CF2AA69435007983E0 /* RegisterViewController.swift */; };
 		B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60A99D12AA69441007983E0 /* RegisterViewModel.swift */; };
+		B61AD1E62AEB490E002C427D /* ServiceRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD1E52AEB490E002C427D /* ServiceRegisterView.swift */; };
+		B61AD1E92AEB4AAA002C427D /* ServiceRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD1E82AEB4AAA002C427D /* ServiceRegisterViewController.swift */; };
+		B61AD1EB2AEB4C79002C427D /* ServiceRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD1EA2AEB4C79002C427D /* ServiceRegisterViewModel.swift */; };
+		B61AD1EE2AEB4E08002C427D /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD1ED2AEB4E08002C427D /* ServiceModel.swift */; };
 		B629ED352AD4AFDC001198EC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629ED342AD4AFDC001198EC /* ProfileViewModel.swift */; };
 		B629ED382AD4B004001198EC /* ProfileId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629ED372AD4B004001198EC /* ProfileId.swift */; };
 		B629ED3A2AD4B3AB001198EC /* CreateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629ED392AD4B3AB001198EC /* CreateProfile.swift */; };
 		B629ED3C2AD4B514001198EC /* EditProfileStepTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629ED3B2AD4B514001198EC /* EditProfileStepTwoViewModel.swift */; };
 		B629ED3F2AD4B55B001198EC /* CepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629ED3E2AD4B55B001198EC /* CepModel.swift */; };
 		B64E0F042AC7723000CB8F30 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */; };
-		B64E0F072AC772CC00CB8F30 /* SettingsViewConstroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */; };
+		B64E0F072AC772CC00CB8F30 /* ServiceListViewConstroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F062AC772CC00CB8F30 /* ServiceListViewConstroller.swift */; };
 		B64E0F0B2AC77E7400CB8F30 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E0F0A2AC77E7400CB8F30 /* ProfileView.swift */; };
+		B65EEE722AEAD50900AEA0E4 /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EEE712AEAD50900AEA0E4 /* ServiceListView.swift */; };
+		B65EEE762AEAD86A00AEA0E4 /* ServiceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EEE752AEAD86A00AEA0E4 /* ServiceListCell.swift */; };
+		B65EEE792AEAE19200AEA0E4 /* ServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EEE782AEAE19200AEA0E4 /* ServiceList.swift */; };
+		B65EEE7B2AEAE51900AEA0E4 /* ServiceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EEE7A2AEAE51900AEA0E4 /* ServiceListViewModel.swift */; };
 		B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */; };
 		B67BDDDE2AAF86FF00F77A1E /* ThemeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */; };
 		B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67BDDDF2AAF974400F77A1E /* ThemeById.swift */; };
@@ -42,12 +50,15 @@
 		B68392A32AAD515B000F8F5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A22AAD515B000F8F5C /* Constants.swift */; };
 		B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A42AAD52EE000F8F5C /* UserManager.swift */; };
 		B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68392A62AAD546F000F8F5C /* UserBusiness.swift */; };
+		B6884F072AD4DEB10006BB2B /* EditProfileStepOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6884F062AD4DEB10006BB2B /* EditProfileStepOneViewModel.swift */; };
 		B68A7C8D2ACFBD7B00833452 /* EditProfileStepOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */; };
 		B68A7C8F2ACFBDDD00833452 /* EditProfileStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */; };
 		B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */; };
 		B6AD3B112ACBE1BA00DC8D0F /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */; };
 		B6AD52FD2AD05DA7004A81F1 /* EditProfileStepTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD52FC2AD05DA7004A81F1 /* EditProfileStepTwoView.swift */; };
 		B6AD52FF2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD52FE2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift */; };
+		B6B650162AED4EA500A5B3E3 /* HomeTabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B650152AED4EA500A5B3E3 /* HomeTabbarViewModel.swift */; };
+		B6B650182AED75F200A5B3E3 /* ServiceDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B650172AED75F200A5B3E3 /* ServiceDelete.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,14 +79,22 @@
 		B60A99CD2AA6942A007983E0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B60A99CF2AA69435007983E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B60A99D12AA69441007983E0 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		B61AD1E52AEB490E002C427D /* ServiceRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegisterView.swift; sourceTree = "<group>"; };
+		B61AD1E82AEB4AAA002C427D /* ServiceRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegisterViewController.swift; sourceTree = "<group>"; };
+		B61AD1EA2AEB4C79002C427D /* ServiceRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegisterViewModel.swift; sourceTree = "<group>"; };
+		B61AD1ED2AEB4E08002C427D /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		B629ED342AD4AFDC001198EC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B629ED372AD4B004001198EC /* ProfileId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileId.swift; sourceTree = "<group>"; };
 		B629ED392AD4B3AB001198EC /* CreateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfile.swift; sourceTree = "<group>"; };
 		B629ED3B2AD4B514001198EC /* EditProfileStepTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepTwoViewModel.swift; sourceTree = "<group>"; };
 		B629ED3E2AD4B55B001198EC /* CepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepModel.swift; sourceTree = "<group>"; };
 		B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewConstroller.swift; sourceTree = "<group>"; };
+		B64E0F062AC772CC00CB8F30 /* ServiceListViewConstroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListViewConstroller.swift; sourceTree = "<group>"; };
 		B64E0F0A2AC77E7400CB8F30 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B65EEE712AEAD50900AEA0E4 /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
+		B65EEE752AEAD86A00AEA0E4 /* ServiceListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListCell.swift; sourceTree = "<group>"; };
+		B65EEE782AEAE19200AEA0E4 /* ServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceList.swift; sourceTree = "<group>"; };
+		B65EEE7A2AEAE51900AEA0E4 /* ServiceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListViewModel.swift; sourceTree = "<group>"; };
 		B67BDDDA2AAF84FC00F77A1E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		B67BDDDD2AAF86FF00F77A1E /* ThemeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeList.swift; sourceTree = "<group>"; };
 		B67BDDDF2AAF974400F77A1E /* ThemeById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeById.swift; sourceTree = "<group>"; };
@@ -90,12 +109,15 @@
 		B68392A22AAD515B000F8F5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B68392A42AAD52EE000F8F5C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B68392A62AAD546F000F8F5C /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
+		B6884F062AD4DEB10006BB2B /* EditProfileStepOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepOneViewModel.swift; sourceTree = "<group>"; };
 		B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepOneView.swift; sourceTree = "<group>"; };
 		B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepOneViewController.swift; sourceTree = "<group>"; };
 		B6AD3B0E2ACBE17D00DC8D0F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B6AD3B102ACBE1BA00DC8D0F /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B6AD52FC2AD05DA7004A81F1 /* EditProfileStepTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepTwoView.swift; sourceTree = "<group>"; };
 		B6AD52FE2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStepTwoViewController.swift; sourceTree = "<group>"; };
+		B6B650152AED4EA500A5B3E3 /* HomeTabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabbarViewModel.swift; sourceTree = "<group>"; };
+		B6B650172AED75F200A5B3E3 /* ServiceDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDelete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +189,11 @@
 		B60A99C12AA676B2007983E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B61AD1E42AEB48E9002C427D /* ServiceRegister */,
 				B6AD52FB2AD05D5C004A81F1 /* EditProfileTwo */,
 				B68A7C8B2ACFBD4000833452 /* EditProfileOne */,
 				B6AD3B0D2ACBE15400DC8D0F /* Schedule */,
-				B64E0F052AC772A800CB8F30 /* Settings */,
+				B64E0F052AC772A800CB8F30 /* ServiceList */,
 				B64E0F022AC7715B00CB8F30 /* TabBar */,
 				B6810AD22AAD83BB004ED703 /* Profile */,
 				B60A99C22AA676BA007983E0 /* Login */,
@@ -208,6 +231,34 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		B61AD1E42AEB48E9002C427D /* ServiceRegister */ = {
+			isa = PBXGroup;
+			children = (
+				B61AD1EC2AEB4CEE002C427D /* Model */,
+				B61AD1E72AEB4968002C427D /* View */,
+			);
+			path = ServiceRegister;
+			sourceTree = "<group>";
+		};
+		B61AD1E72AEB4968002C427D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B61AD1E52AEB490E002C427D /* ServiceRegisterView.swift */,
+				B61AD1E82AEB4AAA002C427D /* ServiceRegisterViewController.swift */,
+				B61AD1EA2AEB4C79002C427D /* ServiceRegisterViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B61AD1EC2AEB4CEE002C427D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B61AD1ED2AEB4E08002C427D /* ServiceModel.swift */,
+				B6B650172AED75F200A5B3E3 /* ServiceDelete.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B629ED362AD4AFF3001198EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +291,7 @@
 			children = (
 				B68A7C8C2ACFBD7B00833452 /* EditProfileStepOneView.swift */,
 				B68A7C8E2ACFBDDD00833452 /* EditProfileStepOneViewController.swift */,
+				B6884F062AD4DEB10006BB2B /* EditProfileStepOneViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,18 +304,21 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		B64E0F052AC772A800CB8F30 /* Settings */ = {
+		B64E0F052AC772A800CB8F30 /* ServiceList */ = {
 			isa = PBXGroup;
 			children = (
-				B64E0F062AC772CC00CB8F30 /* SettingsViewConstroller.swift */,
+				B65EEE772AEAE18300AEA0E4 /* Model */,
+				B65EEE742AEAD83500AEA0E4 /* Cell */,
+				B65EEE732AEAD82700AEA0E4 /* View */,
 			);
-			name = Settings;
+			name = ServiceList;
 			sourceTree = "<group>";
 		};
 		B64E0F082AC77E4A00CB8F30 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B64E0F032AC7723000CB8F30 /* HomeTabBarController.swift */,
+				B6B650152AED4EA500A5B3E3 /* HomeTabbarViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +331,32 @@
 				B629ED342AD4AFDC001198EC /* ProfileViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B65EEE732AEAD82700AEA0E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B65EEE712AEAD50900AEA0E4 /* ServiceListView.swift */,
+				B64E0F062AC772CC00CB8F30 /* ServiceListViewConstroller.swift */,
+				B65EEE7A2AEAE51900AEA0E4 /* ServiceListViewModel.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B65EEE742AEAD83500AEA0E4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B65EEE752AEAD86A00AEA0E4 /* ServiceListCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		B65EEE772AEAE18300AEA0E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B65EEE782AEAE19200AEA0E4 /* ServiceList.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		B67BDDD82AAF83F500F77A1E /* APIService */ = {
@@ -542,17 +623,21 @@
 			files = (
 				B60A99D02AA69435007983E0 /* RegisterViewController.swift in Sources */,
 				B6AD52FF2AD05DD0004A81F1 /* EditProfileStepTwoViewController.swift in Sources */,
+				B6B650182AED75F200A5B3E3 /* ServiceDelete.swift in Sources */,
 				B68A7C8F2ACFBDDD00833452 /* EditProfileStepOneViewController.swift in Sources */,
 				B60A99D22AA69441007983E0 /* RegisterViewModel.swift in Sources */,
+				B65EEE7B2AEAE51900AEA0E4 /* ServiceListViewModel.swift in Sources */,
 				B64E0F0B2AC77E7400CB8F30 /* ProfileView.swift in Sources */,
 				B629ED3A2AD4B3AB001198EC /* CreateProfile.swift in Sources */,
 				B60A99C92AA67BE0007983E0 /* UIView+.swift in Sources */,
 				B68392A52AAD52EE000F8F5C /* UserManager.swift in Sources */,
 				B629ED3F2AD4B55B001198EC /* CepModel.swift in Sources */,
 				B60A99B12AA67557007983E0 /* LoginViewController.swift in Sources */,
+				B61AD1EE2AEB4E08002C427D /* ServiceModel.swift in Sources */,
 				B6810AD42AAD83D9004ED703 /* ProfileViewController.swift in Sources */,
 				B60A99CB2AA68601007983E0 /* UITextField+.swift in Sources */,
 				B60A99AD2AA67557007983E0 /* AppDelegate.swift in Sources */,
+				B65EEE722AEAD50900AEA0E4 /* ServiceListView.swift in Sources */,
 				B68392A02AAD48E6000F8F5C /* UserProvider.swift in Sources */,
 				B68392A72AAD546F000F8F5C /* UserBusiness.swift in Sources */,
 				B60A99C42AA676D8007983E0 /* LoginView.swift in Sources */,
@@ -562,19 +647,26 @@
 				B67BDDE42AAFA28F00F77A1E /* ThemeComponentById.swift in Sources */,
 				B6AD3B0F2ACBE17D00DC8D0F /* ScheduleView.swift in Sources */,
 				B629ED382AD4B004001198EC /* ProfileId.swift in Sources */,
+				B65EEE792AEAE19200AEA0E4 /* ServiceList.swift in Sources */,
 				B629ED352AD4AFDC001198EC /* ProfileViewModel.swift in Sources */,
 				B60A99CE2AA6942A007983E0 /* RegisterView.swift in Sources */,
 				B64E0F042AC7723000CB8F30 /* HomeTabBarController.swift in Sources */,
+				B6884F072AD4DEB10006BB2B /* EditProfileStepOneViewModel.swift in Sources */,
 				B60A99C62AA67718007983E0 /* LoginViewModel.swift in Sources */,
-				B64E0F072AC772CC00CB8F30 /* SettingsViewConstroller.swift in Sources */,
+				B61AD1EB2AEB4C79002C427D /* ServiceRegisterViewModel.swift in Sources */,
+				B64E0F072AC772CC00CB8F30 /* ServiceListViewConstroller.swift in Sources */,
+				B61AD1E92AEB4AAA002C427D /* ServiceRegisterViewController.swift in Sources */,
 				B6AD3B112ACBE1BA00DC8D0F /* ScheduleViewController.swift in Sources */,
 				B67BDDDB2AAF84FC00F77A1E /* ApiService.swift in Sources */,
+				B6B650162AED4EA500A5B3E3 /* HomeTabbarViewModel.swift in Sources */,
 				B68392942AAD3F80000F8F5C /* Worker.swift in Sources */,
 				B68392A32AAD515B000F8F5C /* Constants.swift in Sources */,
 				B67BDDDE2AAF86FF00F77A1E /* ThemeList.swift in Sources */,
 				B683929E2AAD47D7000F8F5C /* UserModel.swift in Sources */,
 				B67BDDE02AAF974400F77A1E /* ThemeById.swift in Sources */,
+				B61AD1E62AEB490E002C427D /* ServiceRegisterView.swift in Sources */,
 				B60A99AF2AA67557007983E0 /* SceneDelegate.swift in Sources */,
+				B65EEE762AEAD86A00AEA0E4 /* ServiceListCell.swift in Sources */,
 				B68A7C8D2ACFBD7B00833452 /* EditProfileStepOneView.swift in Sources */,
 				B67BDDE22AAFA16300F77A1E /* ThemeComponentList.swift in Sources */,
 			);

@@ -23,12 +23,6 @@ class EditProfileStepTwoViewController: UIViewController {
         return view
     }()
     
-    var name: String?
-    var phone: String?
-    var cpf: String?
-    var typeOfActivity: String?
-    var birthdate: String?
-    
     let viewModel = EditProfileStepTwoViewModel()
     
     override func viewDidLoad() {
@@ -71,7 +65,6 @@ class EditProfileStepTwoViewController: UIViewController {
         } else {
             self.navigationController?.popToRootViewController(animated: true)
         }
-        
     }
     
     private func setupRequest() {
@@ -93,23 +86,24 @@ class EditProfileStepTwoViewController: UIViewController {
     }
     
     private func setupRequestProfile() {
-        let name = self.name ?? ""
+        let name = viewModel.name ?? ""
         let image = ""
-        let phone = self.phone ?? ""
-        let cpf = self.cpf ?? ""
-        let typeOfActivity = self.typeOfActivity ?? ""
-        let birthdate = self.birthdate ?? ""
+        let phone = viewModel.phone ?? ""
+        let cpf = viewModel.cpf ?? ""
+        let typeOfActivity = viewModel.typeOfActivity ?? ""
+        let birthdate = viewModel.birthdate ?? ""
         let cep = viewEditProfileTwo.textCep.text ?? ""
         let street = viewEditProfileTwo.textRoad.text ?? ""
         let number = viewEditProfileTwo.textNumber.text ?? ""
         let district = viewEditProfileTwo.textNeighborhood.text ?? ""
         let city = viewEditProfileTwo.textCity.text ?? ""
         let state = viewEditProfileTwo.textState.text ?? ""
-        let id = 4
+        let id = 3
         let isInativo = false
         let creationDate = "08/10/2023"
         let changeDate = "08/10/2023"
-        let uid = "2023-10-02617893b7-2bb3-48cb-a0f0-f623d6d8a557"
+        let uid = ""
+        //let uid = "2023-10-02617893b7-2bb3-48cb-a0f0-f623d6d8a557"
         let uidFirebase = "CodandoComMoa"
         let isChanged = true
         
@@ -120,13 +114,13 @@ class EditProfileStepTwoViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.sync {
-                    self.showMessageError(title: "Falha 😭", message: "Perfil Criado Com Successo")
+                    self.showMessageError(title: "Falha 😭", message: "Erro ao criar Perfil")
                 }
             }
         }
     }
     
-    func showMessageError(title: String, message: String) {
+    private func showMessageError(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let buttonAction = UIAlertAction(title: "Ok", style: .destructive)
         alert.addAction(buttonAction)

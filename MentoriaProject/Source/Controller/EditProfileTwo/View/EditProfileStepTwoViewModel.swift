@@ -11,8 +11,15 @@ import SDKNET
 class EditProfileStepTwoViewModel {
     
     private let provider = Provider()
-    private var myProfile: CreateProfile?
+    //private var myProfile: CreateProfile?
     private var myCep: CepModel?
+    
+    var name: String?
+    var phone: String?
+    var cpf: String?
+    var typeOfActivity: String?
+    var birthdate: String?
+    var uid: String?
     
     var myAddress: String {
         myCep?.logradouro ?? ""
@@ -28,6 +35,14 @@ class EditProfileStepTwoViewModel {
     
     var myState: String {
         myCep?.uf ?? ""
+    }
+    
+    func getValuesPerfiOne(name: String?, phone: String?, cpf: String?, typeOfActivity: String?, birthdate: String?) {
+        self.name = name
+        self.phone = phone
+        self.cpf = cpf
+        self.typeOfActivity = typeOfActivity
+        self.birthdate = birthdate
     }
     
     func getCepAddress(cep: String, completion: @escaping (Bool) -> Void) {

@@ -245,7 +245,7 @@ class EditProfileStepOneView: UIView {
                 errorMessages.append("Campo Nome Obrigatorio")
             }
             if let cpf = textCPF.text {
-                if name.isEmpty {
+                if cpf.isEmpty {
                     errorMessages.append("Campo CPF Obrigatorio")
                 }
             }
